@@ -47,7 +47,8 @@ class Card extends React.Component {
           onPress={() => navigation.navigate("Product", { product: item })}
         >
           <Block flex space="between" style={styles.cardDescription}>
-            <Block flex>
+
+            {/* <Block flex>
               <Text
                 style={{ fontFamily: 'open-sans-regular' }}
                 size={14}
@@ -65,7 +66,36 @@ class Card extends React.Component {
               ) : (
                 <Block />
               )}
+            </Block> */}
+
+
+            <Block
+              style={{
+                paddingHorizontal: theme.SIZES.INPUT_BORDER_RADIUS
+              }}
+            >
+              <Text  size={18} style={{ paddingBottom: 10, fontFamily: 'open-sans-regular' }} color={argonTheme.COLORS.TEXT}>
+                {item.title}
+              </Text>
+              <Block row space="between">
+                
+                <Block row>
+                  <Block style={{ marginTop: 2 }}>
+                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.hours}</Text>
+                    <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '100' }}>
+                      Pro Seller
+                    </Text>
+                  </Block>
+                </Block>
+                <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
+                  {item.open ? 'Open' : 'Closed'}
+                </Text>
+              </Block>
             </Block>
+
+
+
+
             <Block right={ctaRight ? true : false}>
               <Text
                 style={{ fontFamily: 'open-sans-bold' }}
