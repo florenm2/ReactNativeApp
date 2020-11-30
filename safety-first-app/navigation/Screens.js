@@ -19,6 +19,10 @@ import Search from "../screens/Search";
 import SettingsScreen from "../screens/Settings";
 import AgreementScreen from "../screens/Agreement";
 import AboutScreen from "../screens/About";
+import NotificationsScreen from "../screens/Notifications";
+// Notifications
+import PersonalNotifications from "../screens/PersonalNotifications";
+import SystemNotifications from "../screens/SystemNotifications";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -32,6 +36,43 @@ const { width } = Dimensions.get("screen");
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
+
+function NotificationsStack(props) {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color }) => {
+          let iconName;
+          if (route.name === "Personal") {
+            iconName = "user";
+          } else if (route.name === "System") {
+            iconName = "database";
+          }
+          // You can return any component that you like here!
+          return (
+            <Icon
+              name={iconName}
+              family="entypo"
+              size={22}
+              color={color}
+              style={{ marginTop: 10 }}
+            />
+          );
+        }
+      })}
+      tabBarOptions={{
+        activeTintColor: argonTheme.COLORS.PRIMARY,
+        inactiveTintColor: "gray",
+        labelStyle: {
+          fontFamily: "open-sans-regular"
+        }
+      }}
+    >
+      <Tab.Screen name="Personal" component={PersonalNotifications} />
+      <Tab.Screen name="System" component={SystemNotifications} />
+    </Tab.Navigator>
+  );
+}
 
 function SettingsStack(props) {
   return (
@@ -67,6 +108,36 @@ function SettingsStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header back title="About" scene={scene} navigation={navigation} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen
+        name="NotificationsSettings"
+        component={NotificationsScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              back
+              title="Notifications"
+              scene={scene}
+              navigation={navigation}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationsStack}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              back
+              title="Notifications"
+              scene={scene}
+              navigation={navigation}
+            />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
@@ -195,6 +266,21 @@ function HomeStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header title="Search" back navigation={navigation} scene={scene} />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationsStack}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Notifications"
+              back
+              navigation={navigation}
+              scene={scene}
+            />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}

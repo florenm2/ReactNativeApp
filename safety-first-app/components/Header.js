@@ -11,6 +11,18 @@ import argonTheme from '../constants/Theme';
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
 
+const BellButton = ({isWhite, style, navigation}) => (
+  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Notifications')}>
+    <Icon
+      family="ArgonExtra"
+      size={16}
+      name="bell"
+      color={argonTheme.COLORS[isWhite ? 'WHITE' : 'ICON']}
+    />
+    <Block middle style={styles.notify} />
+  </TouchableOpacity>
+);
+
 const SearchButton = ({isWhite, style, navigation}) => (
   <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Search')}>
     <Icon
@@ -33,7 +45,7 @@ class Header extends React.Component {
 
     if (title === 'Title') {
       return [
-        // <BellButton key='chat-title' navigation={navigation} isWhite={white} />,
+        <BellButton key='chat-title' navigation={navigation} isWhite={white} />,
         // <BasketButton key='basket-title' navigation={navigation} isWhite={white} />
       ]
     }
@@ -47,7 +59,7 @@ class Header extends React.Component {
       case 'Search':
       case 'Settings':
         return ([
-          // <BellButton key='chat-categories' navigation={navigation} isWhite={white}/>,
+          <BellButton key='chat-categories' navigation={navigation} isWhite={white}/>,
           // <BasketButton key='basket-categories' navigation={navigation} isWhite={white}/>
         ]);
       default:

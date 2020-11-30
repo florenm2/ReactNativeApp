@@ -53,7 +53,8 @@ export default class Settings extends React.Component {
   render() {
     const recommended = [
       { title: "Use FaceID to sign in", id: "face", type: "switch" },
-      { title: "Auto-Lock security", id: "autolock", type: "switch" }
+      { title: "Auto-Lock security", id: "autolock", type: "switch" },
+      { title: "Notifications", id: "NotificationsSettings", type: "button" }
     ];
 
     const payment = [
