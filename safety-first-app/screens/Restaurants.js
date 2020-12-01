@@ -12,6 +12,33 @@ import Images from "../constants/Images";
 
 const { width } = Dimensions.get("screen");
 
+
+
+const restaurantCategories = {
+  fastFood: [
+    { id: "artists", title: "Artists", image: Images.Music["Artists"] },
+    { id: "concerts", title: "Concerts", image: Images.Music["Concerts"] },
+    { id: "DJs", title: "DJs", image: Images.Music["DJs"] }
+  ],
+  restaurants: [
+    { id: "hands", title: "Hands", image: Images.Music["Hands"] },
+    { id: "body", title: "Body", image: Images.Music["Body"] },
+    { id: "face", title: "Face", image: Images.Music["Face"] }
+  ],
+  stores: [
+    { id: "trends", title: "Trends", image: Images.Music["Trends"] },
+    { id: "clothes", title: "Clothes", image: Images.Music["Clothes"] },
+    { id: "accessory", title: "Accessory", image: Images.Music["Accessory"] }
+  ],
+  // clothes: [
+  //   { id: "stores", title: "Stores", image: Images.Music["Stores"] },
+  //   { id: "garagesale", title: "Garage Sale", image: Images.Music["Garage_sale"] },
+  //   { id: "weddingdress", title: "Wedding Dress", image: Images.Music["Wedding_dress"] }
+  // ]
+};
+
+
+
 const menuCategories = {
   music: [
     { id: "artists", title: "Artists", image: Images.Music["Artists"] },

@@ -47,54 +47,26 @@ class Card extends React.Component {
           onPress={() => navigation.navigate("Product", { product: item })}
         >
           <Block flex space="between" style={styles.cardDescription}>
-
-            {/* <Block flex>
-              <Text
-                style={{ fontFamily: 'open-sans-regular' }}
-                size={14}
-                style={styles.cardTitle}
-                color={argonTheme.COLORS.TEXT}
-              >
-                {item.title}
-              </Text>
-              {item.body ? (
-                <Block flex left>
-                  <Text style={{ fontFamily: 'open-sans-regular' }} size={12} color={argonTheme.COLORS.TEXT}>
-                    {item.body}
-                  </Text>
-                </Block>
-              ) : (
-                <Block />
-              )}
-            </Block> */}
-
-
-            <Block
-              style={{
-                paddingHorizontal: theme.SIZES.INPUT_BORDER_RADIUS
-              }}
-            >
+            <Block>
               <Text  size={18} style={{ paddingBottom: 10, fontFamily: 'open-sans-regular' }} color={argonTheme.COLORS.TEXT}>
-                {item.title}
+                {item.name}
               </Text>
               <Block row space="between">
                 
                 <Block row>
                   <Block style={{ marginTop: 2 }}>
-                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.hours}</Text>
-                    <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '100' }}>
-                      Pro Seller
+                  <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '100' }}>
+                      Current Wait Time:
                     </Text>
+                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.waitTime.current} min</Text>
+                    
                   </Block>
                 </Block>
-                <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
+                {/* <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
                   {item.open ? 'Open' : 'Closed'}
-                </Text>
+                </Text> */}
               </Block>
             </Block>
-
-
-
 
             <Block right={ctaRight ? true : false}>
               <Text
@@ -137,7 +109,8 @@ const styles = StyleSheet.create({
     paddingBottom: 6
   },
   cardDescription: {
-    padding: theme.SIZES.BASE / 2
+    padding: theme.SIZES.BASE / 2,
+    paddingHorizontal: theme.SIZES.INPUT_BORDER_RADIUS
   },
   imageContainer: {
     borderRadius: 3,

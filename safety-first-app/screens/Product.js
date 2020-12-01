@@ -137,105 +137,76 @@ export default class Product extends React.Component {
           <ScrollView vertical={true} showsVerticalScrollIndicator={false}>
             <Block
               style={{
-                paddingHorizontal: theme.SIZES.BASE,
+                paddingHorizontal: theme.SIZES.BASE * 2,
                 paddingTop: theme.SIZES.BASE * 2
               }}
             >
               <Text  size={28} style={{ paddingBottom: 24, fontFamily: 'open-sans-regular' }} color={argonTheme.COLORS.TEXT}>
-                {product.title}
+                {product.name}
               </Text>
               <Block row space="between">
                 <Block row>
-                  <Image
-                    source={Images.ProfilePicture }
-                    style={styles.avatar}
-                  />
                   <Block style={{ marginTop: 2 }}>
-                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>Jessica Jones</Text>
-                    <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '100' }}>
-                      Pro Seller
+                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>Recommendation</Text>
+                    <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '200' }}>
+                      Current Risk: Low
                     </Text>
                   </Block>
                 </Block>
                 <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
-                  $899
+                  Go Now
                 </Text>
               </Block>
             </Block>
-            <Block style={{ padding: theme.SIZES.BASE }}>
-              <Text style={{ fontFamily: 'open-sans-regular' }} size={16} color={argonTheme.COLORS.TEXT}>Size</Text>
+
+
+
+
+            <Block style={{ padding: theme.SIZES.BASE * 2, paddingBottom: 0}}>
+              <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>Predicted Wait Times</Text>
               <Block card style={{ marginTop: 16 }}>
                 <Block row>
                   <Block
                     flex
-                    middle
-                    style={[
-                      styles.size,
-                      styles.roundTopLeft,
-                      selectedSize === "XS" ? styles.active : null
-                    ]}
                   >
-                    {this.renderSize("XS")}
-                  </Block>
-                  <Block
-                    flex
-                    middle
-                    style={[
-                      styles.size,
-                      selectedSize === "S" ? styles.active : null
-                    ]}
-                  >
-                    {this.renderSize("S")}
-                  </Block>
-                  <Block
-                    flex
-                    middle
-                    style={[
-                      styles.size,
-                      styles.roundTopRight,
-                      selectedSize === "M" ? styles.active : null
-                    ]}
-                  >
-                    {this.renderSize("M")}
+                    <Block row style={styles.waitTimesFirstBlock}>
+                      <Block><Text style={styles.waitTimesLabelText}>Current Time: </Text></Block>
+                      <Block><Text style={styles.waitTimesText}>{product.waitTime.current} min</Text></Block>
+                    </Block>
+
+                    <Block row style={styles.waitTimesBlock}>
+                      <Block><Text style={styles.waitTimesLabelText}>One hour from now: </Text></Block>
+                      <Block><Text style={styles.waitTimesText}>{product.waitTime.waitOneHour} min</Text></Block>
+                    </Block>
+
+                    <Block row style={styles.waitTimesBlock}>
+                      <Block><Text style={styles.waitTimesLabelText}>Five hours from now: </Text></Block>
+                      <Block><Text style={styles.waitTimesText}>{product.waitTime.waitFiveHour} min</Text></Block>
+                    </Block>
+
+                    <Block row style={styles.waitTimesLastBlock}>
+                      <Block><Text style={styles.waitTimesLabelText}>This time tomorrow: </Text></Block>
+                      <Block><Text style={styles.waitTimesText}>{product.waitTime.tomorrow} min</Text></Block>
+                    </Block>
+
                   </Block>
                 </Block>
+                
+              </Block>
+            </Block>
+
+
+            <Block style={{ padding: theme.SIZES.BASE * 2}}>
+              <Block row space="between">
                 <Block row>
-                  <Block
-                    flex
-                    middle
-                    style={[
-                      styles.size,
-                      styles.roundBottomLeft,
-                      selectedSize === "L" ? styles.active : null
-                    ]}
-                  >
-                    {this.renderSize("L")}
-                  </Block>
-                  <Block
-                    flex
-                    middle
-                    style={[
-                      styles.size,
-                      { borderBottomWidth: 0 },
-                      selectedSize === "XL" ? styles.active : null
-                    ]}
-                  >
-                    {this.renderSize("XL")}
-                  </Block>
-                  <Block
-                    flex
-                    middle
-                    style={[
-                      styles.size,
-                      styles.roundBottomRight,
-                      selectedSize === "2XL" ? styles.active : null
-                    ]}
-                  >
-                    {this.renderSize("2XL")}
+                  <Block style={{ marginTop: 2 }}>
+                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{product.streetAddress}</Text>
+                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{product.city}, {product.state} {product.zip}</Text>
                   </Block>
                 </Block>
               </Block>
             </Block>
+
           </ScrollView>
         </Block>
       </Block>
@@ -321,5 +292,27 @@ const styles = StyleSheet.create({
     borderLeftColor: argonTheme.COLORS.BORDER_COLOR,
     borderLeftWidth: 0.5,
     borderBottomWidth: 0
+  },
+  waitTimesLabelText: {
+    textAlign: 'left',
+    fontFamily: 'open-sans-light',
+    paddingLeft: 0
+  },
+  waitTimesText: {
+    textAlign: 'right',
+    fontFamily: 'open-sans-regular'
+  },
+  waitTimesFirstBlock: {
+    paddingLeft: theme.SIZES.INPUT_LABEL_TEXT,
+    paddingTop: theme.SIZES.INPUT_TEXT
+  },
+  waitTimesBlock: {
+    paddingLeft: theme.SIZES.INPUT_LABEL_TEXT,
+    paddingTop: 2
+  },
+  waitTimesLastBlock: {
+    paddingLeft: theme.SIZES.INPUT_LABEL_TEXT,
+    paddingBottom: theme.SIZES.INPUT_TEXT,
   }
+
 });
