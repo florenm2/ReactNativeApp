@@ -3,6 +3,7 @@ import {
   ScrollView,
   StyleSheet,
   Image,
+  View,
   TouchableWithoutFeedback,
   ImageBackground,
   Dimensions
@@ -12,6 +13,7 @@ import { Block, Text, theme } from "galio-framework";
 //argon
 import { articles, Images, argonTheme } from "../constants/";
 import { Card, Button } from "../components/";
+import ApiContainer from "../api/ApiContainer";
 
 const { width } = Dimensions.get("screen");
 
@@ -37,159 +39,170 @@ const categories = [
 ];
 
 class Articles extends React.Component {
-  renderProduct = (item, index) => {
-    const { navigation } = this.props;
-
-    return (
-      <TouchableWithoutFeedback
-        style={{ zIndex: 3 }}
-        key={`product-${item.title}`}
-        onPress={() => navigation.navigate("Pro", { product: item })}
-      >
-        <Block center style={styles.productItem}>
-          <Image
-            resizeMode="cover"
-            style={styles.productImage}
-            source={{ uri: item.image }}
-          />
-          <Block center style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Text
-              center
-              size={16}
-              color="#525F7F"
-              style={styles.productPrice}
-            >
-              {item.price}
-            </Text>
-            <Text style={{ fontFamily: 'open-sans-regular' }} center size={34} color={argonTheme.COLORS.TEXT}>
-              {item.title}
-            </Text>
-            <Text
-              center
-              size={16}
-              color={argonTheme.COLORS.MUTED}
-              style={styles.productDescription}
-            >
-              {item.description}
-            </Text>
-          </Block>
-        </Block>
-      </TouchableWithoutFeedback>
-    );
-  };
-
-  renderCards = () => {
-    return (
-      <Block flex style={styles.group}>
-        <Text size={16} style={styles.title}>
-          Cards
-        </Text>
-        <Block flex>
-          <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
-            <Card item={articles[0]} horizontal />
-            <Block flex row>
-              <Card
-                item={articles[1]}
-                style={{ marginRight: theme.SIZES.BASE }}
-              />
-              <Card item={articles[2]} />
-            </Block>
-            <Card item={articles[4]} full />
-            <Block flex card shadow style={styles.category}>
-              <ImageBackground
-                source={{ uri: Images.Products["View article"] }}
-                style={[
-                  styles.imageBlock,
-                  { width: width - theme.SIZES.BASE * 2, height: 252 }
-                ]}
-                imageStyle={{
-                  width: width - theme.SIZES.BASE * 2,
-                  height: 252
-                }}
-              >
-                <Block style={styles.categoryTitle}>
-                  <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={theme.COLORS.WHITE}>
-                    View article
-                  </Text>
-                </Block>
-              </ImageBackground>
-            </Block>
-          </Block>
-          <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
-            <ScrollView
-              horizontal={true}
-              pagingEnabled={true}
-              decelerationRate={0}
-              scrollEventThrottle={16}
-              snapToAlignment="center"
-              showsHorizontalScrollIndicator={false}
-              snapToInterval={cardWidth + theme.SIZES.BASE * 0.375}
-              contentContainerStyle={{
-                paddingHorizontal: theme.SIZES.BASE / 2
-              }}
-            >
-              {categories &&
-                categories.map((item, index) =>
-                  this.renderProduct(item, index)
-                )}
-            </ScrollView>
-          </Block>
-        </Block>
-      </Block>
-    );
-  };
-
-  renderAlbum = () => {
-    const { navigation } = this.props;
-
-    return (
-      <Block
-        flex
-        style={[styles.group, { paddingBottom: theme.SIZES.BASE * 5 }]}
-      >
-        <Block style={{ marginHorizontal: theme.SIZES.BASE * 2 }}>
-          <Block row space="between">
-          <Text bold size={16} color="#525F7F" style={{ marginTop: 3 }}>
-          Album
-        </Text>
-            <Button
-              small
-              color="transparent"
-              textStyle={{ color: "#5E72E4", fontSize: 14 }}
-            >
-              View All
-            </Button>
-          </Block>
-          <Block
-            row
-            space="between"
-            style={{ marginTop: theme.SIZES.BASE, flexWrap: "wrap" }}
-          >
-            {Images.Viewed.map((img, index) => (
-              <Block key={`viewed-${img}`} style={styles.shadow}>
-                <Image
-                  resizeMode="cover"
-                  source={{ uri: img }}
-                  style={styles.albumThumb}
-                />
-              </Block>
-            ))}
-          </Block>
-        </Block>
-      </Block>
-    );
-  };
 
   render() {
-    return (
-      <Block flex center>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {this.renderCards()}
-          {this.renderAlbum()}
-        </ScrollView>
-      </Block>
-    );
-  }
+  return (
+    <View>
+    <ApiContainer/>
+    </View>
+  )
+};
+
+
+
+  // renderProduct = (item, index) => {
+  //   const { navigation } = this.props;
+
+  //   return (
+  //     <TouchableWithoutFeedback
+  //       style={{ zIndex: 3 }}
+  //       key={`product-${item.title}`}
+  //       onPress={() => navigation.navigate("Pro", { product: item })}
+  //     >
+  //       <Block center style={styles.productItem}>
+  //         <Image
+  //           resizeMode="cover"
+  //           style={styles.productImage}
+  //           source={{ uri: item.image }}
+  //         />
+  //         <Block center style={{ paddingHorizontal: theme.SIZES.BASE }}>
+  //           <Text
+  //             center
+  //             size={16}
+  //             color="#525F7F"
+  //             style={styles.productPrice}
+  //           >
+  //             {item.price}
+  //           </Text>
+  //           <Text style={{ fontFamily: 'open-sans-regular' }} center size={34} color={argonTheme.COLORS.TEXT}>
+  //             {item.title}
+  //           </Text>
+  //           <Text
+  //             center
+  //             size={16}
+  //             color={argonTheme.COLORS.MUTED}
+  //             style={styles.productDescription}
+  //           >
+  //             {item.description}
+  //           </Text>
+  //         </Block>
+  //       </Block>
+  //     </TouchableWithoutFeedback>
+  //   );
+  // };
+
+  // renderCards = () => {
+  //   return (
+  //     <Block flex style={styles.group}>
+  //       <Text size={16} style={styles.title}>
+  //         Cards
+  //       </Text>
+  //       <Block flex>
+  //         <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+  //           <Card item={articles[0]} horizontal />
+  //           <Block flex row>
+  //             <Card
+  //               item={articles[1]}
+  //               style={{ marginRight: theme.SIZES.BASE }}
+  //             />
+  //             <Card item={articles[2]} />
+  //           </Block>
+  //           <Card item={articles[4]} full />
+  //           <Block flex card shadow style={styles.category}>
+  //             <ImageBackground
+  //               source={{ uri: Images.Products["View article"] }}
+  //               style={[
+  //                 styles.imageBlock,
+  //                 { width: width - theme.SIZES.BASE * 2, height: 252 }
+  //               ]}
+  //               imageStyle={{
+  //                 width: width - theme.SIZES.BASE * 2,
+  //                 height: 252
+  //               }}
+  //             >
+  //               <Block style={styles.categoryTitle}>
+  //                 <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={theme.COLORS.WHITE}>
+  //                   View article
+  //                 </Text>
+  //               </Block>
+  //             </ImageBackground>
+  //           </Block>
+  //         </Block>
+  //         <Block flex style={{ marginTop: theme.SIZES.BASE / 2 }}>
+  //           <ScrollView
+  //             horizontal={true}
+  //             pagingEnabled={true}
+  //             decelerationRate={0}
+  //             scrollEventThrottle={16}
+  //             snapToAlignment="center"
+  //             showsHorizontalScrollIndicator={false}
+  //             snapToInterval={cardWidth + theme.SIZES.BASE * 0.375}
+  //             contentContainerStyle={{
+  //               paddingHorizontal: theme.SIZES.BASE / 2
+  //             }}
+  //           >
+  //             {categories &&
+  //               categories.map((item, index) =>
+  //                 this.renderProduct(item, index)
+  //               )}
+  //           </ScrollView>
+  //         </Block>
+  //       </Block>
+  //     </Block>
+  //   );
+  // };
+
+  // renderAlbum = () => {
+  //   const { navigation } = this.props;
+
+  //   return (
+  //     <Block
+  //       flex
+  //       style={[styles.group, { paddingBottom: theme.SIZES.BASE * 5 }]}
+  //     >
+  //       <Block style={{ marginHorizontal: theme.SIZES.BASE * 2 }}>
+  //         <Block row space="between">
+  //         <Text bold size={16} color="#525F7F" style={{ marginTop: 3 }}>
+  //         Album
+  //       </Text>
+  //           <Button
+  //             small
+  //             color="transparent"
+  //             textStyle={{ color: "#5E72E4", fontSize: 14 }}
+  //           >
+  //             View All
+  //           </Button>
+  //         </Block>
+  //         <Block
+  //           row
+  //           space="between"
+  //           style={{ marginTop: theme.SIZES.BASE, flexWrap: "wrap" }}
+  //         >
+  //           {Images.Viewed.map((img, index) => (
+  //             <Block key={`viewed-${img}`} style={styles.shadow}>
+  //               <Image
+  //                 resizeMode="cover"
+  //                 source={{ uri: img }}
+  //                 style={styles.albumThumb}
+  //               />
+  //             </Block>
+  //           ))}
+  //         </Block>
+  //       </Block>
+  //     </Block>
+  //   );
+  // };
+
+  // render() {
+  //   return (
+  //     <Block flex center>
+  //       <ScrollView showsVerticalScrollIndicator={false}>
+  //         {this.renderCards()}
+  //         {this.renderAlbum()}
+  //       </ScrollView>
+  //     </Block>
+  //   );
+  // }
 }
 
 const styles = StyleSheet.create({
