@@ -7,8 +7,21 @@ import {
     Text,
     TouchableOpacity
 } from "react-native";
+// import fs from "fs";
+// import https from "https";
 
-const crt = require("../assets/cert/");
+
+const fs = require('file-system');
+// const https = require('https');
+const httpsAgent2 = require('https-agent');
+
+
+const httpsAgent = new httpsAgent2({
+    cert: fs.readFileSync('../assets/cert/cert.pem'),
+     key: fs.readFileSync('../assets/cert/privateKey.pem'),
+});
+
+// const httpsAgent = new https.Agent({ ca: MY_CA_BUNDLE });
 
 class ApiContainer extends Component {
     constructor(props) {
@@ -44,11 +57,6 @@ class ApiContainer extends Component {
             .catch(error => console.log(error))
     }
 
-	const httpsAgent = new https.Agent({
- 		cert: crt.readFileSync('cert.pem'),
-  		key: crt.readFileSync('privateKey.pem'),
-	});
-
     goForAxios = () => {
         this.setState({
             fromFetch: false,
@@ -59,18 +67,7 @@ class ApiContainer extends Component {
 				  { auth: {
 					  username: 'TY1M9UW7V8GJZN4GT25S21OdNNnbGjz8-zMcTWJDiS5JYS8Nk',
 					  password: 'KyE4F1XMemj'
-				  }},
-				  {
-					{requestHeader: {
-				   		requestMessageId: '6da60e1b8b024532a2e0eacb1af58581',
-				   		messageDateTime: '2020-12-02T18:33:17.327' 
-					},
-				   	requestData: {
-				   		kind: 'predict'
-				   	}
-				   	}
-				  }
-				  )
+				  }})
             .then(response => {
                 console.log('getting data from axios', response.data);
                 setTimeout(() => {
