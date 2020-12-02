@@ -8,6 +8,7 @@ import {
     TouchableOpacity
 } from "react-native";
 
+const crt = require("../assets/cert/");
 
 class ApiContainer extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class ApiContainer extends Component {
             axiosData: null
         };
     }
+	
 
     goForFetch = () => {
         this.setState({
@@ -42,13 +44,33 @@ class ApiContainer extends Component {
             .catch(error => console.log(error))
     }
 
+	const httpsAgent = new https.Agent({
+ 		cert: crt.readFileSync('cert.pem'),
+  		key: crt.readFileSync('privateKey.pem'),
+	});
+
     goForAxios = () => {
         this.setState({
             fromFetch: false,
             loading: true,
 
         })
-        axios.get("https://jsonplaceholder.typicode.com/users")
+        axios.post("https://sandbox.api.visa.com/visaqueueinsights/v1/queueinsights", { httpsAgent },
+				  { auth: {
+					  username: 'TY1M9UW7V8GJZN4GT25S21OdNNnbGjz8-zMcTWJDiS5JYS8Nk',
+					  password: 'KyE4F1XMemj'
+				  }},
+				  {
+					{requestHeader: {
+				   		requestMessageId: '6da60e1b8b024532a2e0eacb1af58581',
+				   		messageDateTime: '2020-12-02T18:33:17.327' 
+					},
+				   	requestData: {
+				   		kind: 'predict'
+				   	}
+				   	}
+				  }
+				  )
             .then(response => {
                 console.log('getting data from axios', response.data);
                 setTimeout(() => {
@@ -56,7 +78,7 @@ class ApiContainer extends Component {
                         loading: false,
                         axiosData: response.data
                     })
-                }, 2000)
+                }, 4000)
             })
             .catch(error => {
                 console.log(error);
