@@ -13,7 +13,7 @@ import { Block, Text, theme } from "galio-framework";
 //argon
 import { articles, Images, argonTheme } from "../constants/";
 import { Card, Button } from "../components/";
-import ApiContainer from "../api/ApiContainer";
+import ApiContainer from "../api/CovidByCounty/ApiContainer";
 
 const { width } = Dimensions.get("screen");
 
