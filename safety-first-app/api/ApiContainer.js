@@ -13,12 +13,18 @@ import {
 
 const fs = require('file-system');
 // const https = require('https');
+
 const httpsAgent2 = require('https-agent');
 
 
+//const httpsAgent = new httpsAgent2({
+//     cert: fs.readFileSync('../assets/cert/cert.pem'),
+//     key: fs.readFileSync('../assets/cert/privateKey.pem'),
+//});
+
 const httpsAgent = new httpsAgent2({
-    cert: fs.readFileSync('../assets/cert/cert.pem'),
-     key: fs.readFileSync('../assets/cert/privateKey.pem'),
+    pfx: fs.readFileSync('../assets/cert/myCert.p12'),
+    passphrase: 'mvwar'
 });
 
 // const httpsAgent = new https.Agent({ ca: MY_CA_BUNDLE });
@@ -63,11 +69,30 @@ class ApiContainer extends Component {
             loading: true,
 
         })
-        axios.post("https://sandbox.api.visa.com/visaqueueinsights/v1/queueinsights", { httpsAgent },
-				  { auth: {
-					  username: 'TY1M9UW7V8GJZN4GT25S21OdNNnbGjz8-zMcTWJDiS5JYS8Nk',
-					  password: 'KyE4F1XMemj'
-				  }})
+        axios.post("https://sandbox.api.visa.com/visaqueueinsights/v1/queueinsights",
+            { httpsAgent },
+            {
+                auth: {
+                    username: 'TY1M9UW7V8GJZN4GT25S21OdNNnbGjz8-zMcTWJDiS5JYS8Nk',
+                    password: 'KyE4F1XMemj'
+                }
+            },
+            {
+                data: {
+                    "requestHeader": {
+                        "requestMessageId": "6da60e1b8b024532a2e0eacb1af58581",
+                        "messageDateTime": "2020-12-02T18:33:17.327"
+                    },
+                    "requestData": {
+                        "kind": "predict"
+                    }
+                }
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
             .then(response => {
                 console.log('getting data from axios', response.data);
                 setTimeout(() => {
