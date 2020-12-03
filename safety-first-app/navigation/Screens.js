@@ -23,7 +23,7 @@ import PrivacyScreen from "../screens/Privacy";
 import NotificationsScreen from "../screens/Notifications";
 // Notifications
 import PersonalNotifications from "../screens/PersonalNotifications";
-import SystemNotifications from "../screens/SystemNotifications";
+// import SystemNotifications from "../screens/SystemNotifications";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -70,7 +70,7 @@ function NotificationsStack(props) {
       }}
     >
       <Tab.Screen name="Personal" component={PersonalNotifications} />
-      <Tab.Screen name="System" component={SystemNotifications} />
+      {/* <Tab.Screen name="System" component={SystemNotifications} /> */}
     </Tab.Navigator>
   );
 }
