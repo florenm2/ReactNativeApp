@@ -50,5 +50,5 @@ export default {
   Restaurants,
   Music,
   Pro
-  // Stores
+
 };

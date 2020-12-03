@@ -40,7 +40,7 @@ class Card extends React.Component {
           onPress={() => navigation.navigate("Product", { product: item })}
         >
           <Block flex style={imgContainer}>
-            <Image source={{ uri: item.image }} style={imageStyles} />
+            <Image source={item.image} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback

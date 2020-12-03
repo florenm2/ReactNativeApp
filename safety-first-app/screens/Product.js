@@ -32,9 +32,9 @@ export default class Product extends React.Component {
     const product = route.params?.product;
     const productImages = [
       product.image,
-      product.image,
-      product.image,
-      product.image
+      product.image1,
+      product.image2,
+      product.image3
     ];
 
     return (
@@ -57,7 +57,7 @@ export default class Product extends React.Component {
           >
             <Image
               resizeMode="cover"
-              source={{ uri: image }}
+              source={image}
               style={{ width, height: iPhoneX ? width + 32 : width }}
             />
           </TouchableWithoutFeedback>
@@ -73,9 +73,9 @@ export default class Product extends React.Component {
     const product = route.params?.product;
     const productImages = [
       product.image,
-      product.image,
-      product.image,
-      product.image
+      product.image1,
+      product.image2,
+      product.image3
     ];
 
     const position = Animated.divide(this.scrollX, width);

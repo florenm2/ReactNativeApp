@@ -1,5 +1,32 @@
 export default [
     {
+        name: 'Panera Bread',
+        waitTime: {
+            current: '6',
+            waitOneHour: '8',
+            waitFiveHour: '10',
+            tomorrow: '4'
+        },
+        streetAddress: '660 Stanford Shopping Center',
+        city: 'Palo Alto',
+        state: 'CA',
+        zip: '94304',
+        country: 'USA',
+        distance: '1',
+        distanceUnit: 'm',
+        latitude: '37.363355',
+        longitude: '-121.921990',
+        category: 'FAST CASUAL RESTAURANT',
+        terminalType: [],
+        firstTranDateRange: '',
+        lastTranDateRange: '',
+        cta: 'View Store',
+        image: require("../assets/imgs/merchant/panera-1.jpg"),
+        image1: require("../assets/imgs/merchant/panera-3.jpg"),
+        image2: require("../assets/imgs/merchant/panera-5.jpg"),
+        image3: require("../assets/imgs/merchant/panera-7.jpg")
+    },
+    {
         name: 'Walgreens',
         waitTime: {
             current: '6',
@@ -21,34 +48,13 @@ export default [
         firstTranDateRange: '',
         lastTranDateRange: '',
         cta: 'View Store',
-        image: 'https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+        image: require("../assets/imgs/merchant/walgreen-1.jpg"),
+        image1: require("../assets/imgs/merchant/walgreen-2.jpg"),
+        image2: require("../assets/imgs/merchant/walgreen-3.jpg"),
+        image3: require("../assets/imgs/merchant/walgreen-4.jpg")
     },
     {
-        name: 'Panera Bread',
-        waitTime: {
-            current: '6',
-            waitOneHour: '8',
-            waitFiveHour: '10',
-            tomorrow: '4'
-        },
-        streetAddress: '660 Stanford Shopping Center',
-        city: 'Palo Alto',
-        state: 'CA',
-        zip: '94304',
-        country: 'USA',
-        distance: '1',
-        distanceUnit: 'm',
-        latitude: '37.363355',
-        longitude: '-121.921990',
-        category: 'FAST CASUAL RESTAURANT',
-        terminalType: [],
-        firstTranDateRange: '',
-        lastTranDateRange: '',
-        cta: 'View Store',
-        image: 'https://images.unsplash.com/photo-1519368358672-25b03afee3bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2004&q=80',
-    },
-    {
-        name: 'Walgreens',
+        name: 'Home Depot',
         waitTime: {
             current: '6',
             waitOneHour: '8',
@@ -69,10 +75,13 @@ export default [
         firstTranDateRange: '',
         lastTranDateRange: '',
         cta: 'View Store',
-        image: 'https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80',
+        image: require("../assets/imgs/merchant/homedepot.jpg"),
+        image1: require("../assets/imgs/merchant/homed-1.jpg"),
+        image2: require("../assets/imgs/merchant/homed-2.jpg"),
+        image3: require("../assets/imgs/merchant/homed-3.jpg")
     },
     {
-        name: 'Panera Bread',
+        name: 'Ikea',
         waitTime: {
             current: '6',
             waitOneHour: '8',
@@ -93,10 +102,14 @@ export default [
         firstTranDateRange: '',
         lastTranDateRange: '',
         cta: 'View Store',
-        image: 'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1326&q=80',
+        image: require("../assets/imgs/merchant/ikea.jpg"),
+        image1: require("../assets/imgs/merchant/ikea-2.jpg"),
+        image2: require("../assets/imgs/merchant/ikea-3.jpg"),
+        image3: require("../assets/imgs/merchant/ikea-8.jpg")
+
     },
     {
-        name: 'Panera Bread',
+        name: 'Burger King',
         waitTime: {
             current: '6',
             waitOneHour: '8',
@@ -117,7 +130,11 @@ export default [
         firstTranDateRange: '',
         lastTranDateRange: '',
         cta: 'View Store',
-        image: 'https://images.unsplash.com/photo-1482686115713-0fbcaced6e28?fit=crop&w=1947&q=80',
+        image: require("../assets/imgs/merchant/burger-1.jpg"),
+        image1: require("../assets/imgs/merchant/burger-7.jpg"),
+        image2: require("../assets/imgs/merchant/burger-4.jpg"),
+        image3: require("../assets/imgs/merchant/burger-5.jpg")
+      
     }
 ] 
 
