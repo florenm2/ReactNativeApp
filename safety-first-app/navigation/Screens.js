@@ -17,7 +17,6 @@ import Gallery from "../screens/Gallery";
 import Search from "../screens/Search";
 // settings
 import SettingsScreen from "../screens/Settings";
-import AgreementScreen from "../screens/Agreement";
 import AboutScreen from "../screens/About";
 import PrivacyScreen from "../screens/Privacy";
 import NotificationsScreen from "../screens/Notifications";
@@ -84,21 +83,6 @@ function SettingsStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header title="Settings" scene={scene} navigation={navigation} />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" }
-        }}
-      />
-      <Stack.Screen
-        name="Agreement"
-        component={AgreementScreen}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              back
-              title="Agreement"
-              scene={scene}
-              navigation={navigation}
-            />
           ),
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}

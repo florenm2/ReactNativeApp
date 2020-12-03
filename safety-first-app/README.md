@@ -45,8 +45,7 @@ Within the download you'll find the following directories and files:
 ├── package.json
 └── screens
     ├── About.js
-    ├── Agreement.js
-    ├── Articles.js
+    ├── CovidInfo.js
     ├── Restaurants.js
     ├── Category.js
     ├── Stores.js
