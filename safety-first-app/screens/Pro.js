@@ -12,42 +12,43 @@ import { Block, Button, Text, theme } from "galio-framework";
 const { height, width } = Dimensions.get("screen");
 import { Images, argonTheme } from "../constants/";
 import { HeaderHeight } from "../constants/utils";
+import { View } from "react-native";
 
 export default class Pro extends React.Component {
   render() {
     const { navigation } = this.props;
 
-    return (
+    return ( 
       <Block flex style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Block flex>
           <ImageBackground
             source={Images.Pro}
-            style={{ flex: 1, height: height, width, zIndex: 1 }}
+            style={{ flex: 1, width: null, height:null, zIndex: 1 }}
           />
           <Block space="between" style={styles.padded}>
             <Block>
-              <Block>
+              {/* <Block>
                 <Image
                   source={Images.ArgonLogo}
-                  style={{ marginBottom: theme.SIZES.BASE * 1.5 }}
+                  style={{ marginBottom: theme.SIZES.BASE }}
                 />
-              </Block>
+              </Block> */}
               <Block>
-                <Block>
-                  <Text style={{ fontFamily: 'open-sans-regular' }} color="white" size={60}>
-                    Visa SafetyFirst
+                <Block center>
+                  <Text style={{ fontFamily: 'open-sans-regular', top:70 }} color="white" size={50}>
+                    VISA
                   </Text>
                 </Block>
-                <Block>
-                  <Text style={{ fontFamily: 'open-sans-regular' }} color="white" size={60}>
-                    Design
+                <Block center>
+                  <Text style={{ fontFamily: 'open-sans-light' , top: 75}} color="white" size={20}>
+                    Wait Less to Shop
                   </Text>
                 </Block>
                 <Block row>
-                  <Text style={{ fontFamily: 'open-sans-regular' }} color="white" size={60}>
+                  {/* <Text style={{ fontFamily: 'open-sans-regular' }} color="white" size={60}>
                     System
-                  </Text>
+                  </Text> */}
                   {/* <Block middle style={styles.pro}>
                     <Text style={{ fontFamily: 'open-sans-bold' }} size={16} color="white">
                       PRO
@@ -55,14 +56,14 @@ export default class Pro extends React.Component {
                   </Block> */}
                 </Block>
               </Block>
-              <Text
+              {/* <Text
                 size={16}
                 color="rgba(255,255,255,0.6)"
                 style={{ marginTop: 35, fontFamily: 'open-sans-regular' }}
               >
                 Take advantage of all the features and screens made upon Galio
                 Design System, coded on React Native for both.
-              </Text>
+              </Text> */}
               <Block
                 row
                 style={{
@@ -89,7 +90,7 @@ export default class Pro extends React.Component {
                 color={argonTheme.COLORS.INFO}
                 onPress={() => navigation.navigate("App")}
               >
-                <Text style={{ fontFamily: 'open-sans-bold', fontSize: 14 }} color={theme.COLORS.WHITE}>
+                <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }} color={theme.COLORS.WHITE}>
                   GET STARTED
                 </Text>
               </Button>
@@ -97,12 +98,14 @@ export default class Pro extends React.Component {
           </Block>
         </Block>
       </Block>
+ 
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+
     backgroundColor: theme.COLORS.BLACK,
     marginTop: Platform.OS === "android" ? -HeaderHeight : 0
   },
