@@ -52,19 +52,18 @@ export default class Settings extends React.Component {
 
   render() {
     const recommended = [
-      { title: "Use FaceID to sign in", id: "face", type: "switch" },
-      { title: "Auto-Lock security", id: "autolock", type: "switch" },
+      // { title: "Use FaceID to sign in", id: "face", type: "switch" },
+      { title: "Notifications", id: "autolock", type: "switch" },
       { title: "Notifications", id: "NotificationsSettings", type: "button" }
     ];
 
     const payment = [
-      { title: "Manage Payment Options", id: "Payment", type: "button" },
-      { title: "Manage Gift Cards", id: "gift", type: "button" }
+      { title: "My Location Settings", id: "Payment", type: "button" },
+      { title: "Manual Location Input", id: "gift", type: "button" }
     ];
 
     const privacy = [
-      { title: "User Agreement", id: "Agreement", type: "button" },
-      // { title: "Privacy", id: "Privacy", type: "button" },
+      { title: "Privacy", id: "Privacy", type: "button" },
       { title: "About", id: "About", type: "button" }
     ];
 
@@ -80,20 +79,20 @@ export default class Settings extends React.Component {
           ListHeaderComponent={
             <Block center style={styles.title}>
               <Text style={{ fontFamily: 'open-sans-bold', paddingBottom: 5 }} size={theme.SIZES.BASE} color={argonTheme.COLORS.TEXT}>
-                Recommended Settings
+                Notification Settings
               </Text>
               <Text style={{ fontFamily: 'open-sans-regular' }} size={12} color={argonTheme.COLORS.CAPTION} color={argonTheme.COLORS.TEXT}>
-                These are the most important settings
+                Settings about the notifications you receive
               </Text>
             </Block>
           }
         />
         <Block center style={styles.title}>
           <Text style={{ fontFamily: 'open-sans-bold', paddingBottom: 5 }} size={theme.SIZES.BASE} color={argonTheme.COLORS.TEXT}>
-            Payment Settings
+            Location Settings
           </Text>
           <Text style={{ fontFamily: 'open-sans-regular' }} size={12} color={argonTheme.COLORS.CAPTION} color={argonTheme.COLORS.TEXT}>
-            These are also important settings
+            Let us know how to determine your location
           </Text>
         </Block>
 
@@ -103,14 +102,14 @@ export default class Settings extends React.Component {
           renderItem={this.renderItem}
         />
 
-        {/* <Block center style={styles.title}>
+        <Block center style={styles.title}>
           <Text style={{ fontFamily: 'open-sans-bold', paddingBottom: 5 }} size={theme.SIZES.BASE} color={argonTheme.COLORS.TEXT}>
             Privacy Settings
           </Text>
           <Text style={{ fontFamily: 'open-sans-regular' }} size={12} color={argonTheme.COLORS.CAPTION} color={argonTheme.COLORS.TEXT}>
-            Third most important settings
+            Your privacy and safety is important to Visa. 
           </Text>
-        </Block> */}
+        </Block>
         <FlatList
           data={privacy}
           keyExtractor={(item, index) => item.id}

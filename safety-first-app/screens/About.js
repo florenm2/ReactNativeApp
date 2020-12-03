@@ -14,10 +14,9 @@ export default class About extends React.Component {
           overScrollMode="always"
         >
           <Text style={{ fontFamily: 'open-sans-regular' }} size={16} color={argonTheme.COLORS.TEXT}>
-            Shares of the giant tech companies tumbled on Monday, pushing major
-            stock market indexes into negative territory for November and
-            leaving investors clinging to a gain of less than 1 percent for the
-            year.
+            Visa cares about you and your safety, as well as the safety of the world around us.
+            This app is intended to provide you with vital information that will keep you safe during this 
+            unprecedented time. 
           </Text>
           <Text
             style={{ fontFamily: 'open-sans-regular' }}
@@ -26,10 +25,10 @@ export default class About extends React.Component {
             style={{ paddingTop: 9 }}
             color={argonTheme.COLORS.TEXT}
           >
-            Apple, Amazon, Facebook and Microsoft were all down by more than 3
-            percent shortly after midday, as investors digested a series of
-            negative reports that suggested they face growing risks to their
-            extraordinary pipeline of profits.
+            We use information from the CDC, top scientists, and our own research to decide a 
+            risk rating for each merchant near you. This risk rating is based on the general current traffic 
+            inside the store or restaurant, the predicted and historic traffic, and the precautions that we have 
+            seen the merchant display. This includes access to touchless communication and payments and a cleanliness trust score.
           </Text>
           <Text
             style={{ fontFamily: 'open-sans-regular' }}
@@ -38,13 +37,11 @@ export default class About extends React.Component {
             style={{ paddingTop: 9 }}
             color={argonTheme.COLORS.TEXT}
           >
-            In an interview with Axios, Tim Cook, the chief executive of Apple,
-            called new regulations for the tech sector “inevitable.” That
-            prospect could significantly raise compliance costs for tech firms
-            and potentially weigh on profits of the iPhone maker as well as
-            other large, dominant tech companies like Amazon and Microsoft.
-            Facebook has already seen its share price plummet after it reported
-            that it significantly increased the amount it spends on security.
+            How do we know the traffic at the store? We can see how many Visa transactions are currently taking place 
+            at a given store or restaurant. We track this data to see how long a predicted line or wait time will be for 
+            customers to be served. We also can determine predictions for future traffic at each store or restaurant based 
+            on the historic traffic behaviors. We want to use our resources, such as the ability to determind traffic in a store, 
+            to help you make the most informed decisions when you leave your home.
           </Text>
           <Text
             style={{ fontFamily: 'open-sans-regular' }}
@@ -53,12 +50,7 @@ export default class About extends React.Component {
             style={{ paddingTop: 9 }}
             color={argonTheme.COLORS.TEXT}
           >
-            The beauty in opening with “tell me about yourself” is that it
-            allows you to start a conversation without the fear that you’re
-            going to inadvertently make someone uncomfortable or self-conscious.
-            Posing a broad question lets people lead you to who they are. As an
-            interviewer, Ms. Gross’s goal is to find out how her subject became
-            who they are; as a conversationalist, make that goal your own.
+            We believe that we can get through this together. 
           </Text>
         </ScrollView>
       </Block>

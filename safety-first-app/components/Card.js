@@ -11,6 +11,25 @@ import { Block, Text, theme } from "galio-framework";
 import { argonTheme } from "../constants";
 
 class Card extends React.Component {
+ 
+//   constructor(props) {
+//       super(props);
+//       this.state = {
+//         safetyRating: ''
+//           // covidCountyData: null
+//       };
+//   }
+
+// componentDidMount() {
+//     this.setState({
+//       safetyRating: 19
+
+//     })
+
+
+//   }
+
+
   render() {
     const {
       navigation,
@@ -23,6 +42,9 @@ class Card extends React.Component {
       ctaRight
     } = this.props;
 
+
+
+
     const imageStyles = [
       full ? styles.fullImage : styles.horizontalImage,
       imageStyle
@@ -33,6 +55,8 @@ class Card extends React.Component {
       horizontal ? styles.horizontalStyles : styles.verticalStyles,
       styles.shadow
     ];
+
+   
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
@@ -56,14 +80,15 @@ class Card extends React.Component {
                 <Block row>
                   <Block style={{ marginTop: 2 }}>
                   <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '100' }}>
-                      Current Wait Time:
+                      Current Wait Time: 
                     </Text>
-                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.currentWait} min</Text>
+                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.waitTime.current} min</Text>
                     
                   </Block>
                 </Block>
                 {/* <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
                   {item.open ? 'Open' : 'Closed'}
+                  {this.state.safetyRating}
                 </Text> */}
               </Block>
             </Block>

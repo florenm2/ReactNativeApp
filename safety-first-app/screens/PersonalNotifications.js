@@ -12,38 +12,38 @@ export default class PersonalNotifications extends React.Component {
           <ScrollView showsVerticalScrollIndicator={false}>
             <Notification
               time="15:30"
-              body="About your order #45C23B Wifey made the best Father's Day meal ever. So thankful so happy."
-              iconName="ship"
+              body="Panera Bread is less busy than usual right now."
+              iconName="bell"
               iconFamily="font-awesome"
               style={{ marginTop: 15 }}
-              onPress={() => Alert.alert('Yes, you can use the notifications as buttons so you could send your customers to anything you want.')}
+              onPress={() => Alert.alert('The Panera Bread located at 660 Stanford Shopping Center, Palo Alto, CA 94304, is not busy. Now is a good time to go.')}
             />
             <Notification
               time="12:10"
-              body="Customize our products. Now you can make the best and perfect clothes just for you."
-              iconName="ship"
+              body="Walgreens is unusually busy. It's a good idea to go later."
+              iconName="bell"
               iconFamily="font-awesome"
               color={argonTheme.COLORS.INFO}
               style={{ marginTop: 15 }}
-              onPress={() => Alert.alert('Yes, you can use the notifications as buttons so you could send your customers to anything you want.')}
+              onPress={() => Alert.alert('The Walgreens located at 4170 El Camino Real, Palo Alto, CA 94306, is unusually busy.')}
             />
             <Notification
               time="11:30"
-              body="Breaking News! We have new methods to payment. Learn how to pay off debt fast using the stack method."
-              iconName="ship"
+              body="Great News! Panera Bread has had low wait times all day."
+              iconName="bell"
               iconFamily="font-awesome"
               color={argonTheme.COLORS.WARNING}
               style={{ marginTop: 15 }}
-              onPress={() => Alert.alert('Yes, you can use the notifications as buttons so you could send your customers to anything you want.')}
+              onPress={() => Alert.alert('The Panera Bread located at 660 Stanford Shopping Center, Palo Alto, CA 94304, is not busy today. Now is a good time to go.')}
             />
             <Notification
               time="04:23"
-              body="Congratulations! Someone just ordered a pair of Yamaha HS8 speakers through your app! Hurry up and ship them!"
-              iconName="ship"
+              body="Walgreens is unusually busy. It's a good idea to go later."
+              iconName="bell"
               iconFamily="font-awesome"
               color={argonTheme.COLORS.SUCCESS}
               style={{ marginTop: 15 }}
-              onPress={() => Alert.alert('Yes, you can use the notifications as buttons so you could send your customers to anything you want.')}
+              onPress={() => Alert.alert('The Walgreens located at 4170 El Camino Real, Palo Alto, CA 94306, is unusually busy.')}
             />
             <Block style={{ marginBottom: 20 }} />
           </ScrollView>

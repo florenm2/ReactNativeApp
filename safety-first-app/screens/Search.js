@@ -10,9 +10,11 @@ import {
 } from "react-native";
 import { Block, Text, Input, theme } from "galio-framework";
 
+import uniqueId from 'lodash/uniqueId';
+
 const { width } = Dimensions.get("screen");
 
-import { articles, categories, argonTheme } from "../constants/";
+import { merchants, categories, argonTheme } from "../constants/";
 import { Icon, Card } from "../components/";
 
 const suggestions = [
@@ -41,14 +43,17 @@ export default class Search extends React.Component {
   }
 
   handleSearchChange = search => {
-    const results = articles.filter(
-      item => search && item.title.toLowerCase().includes(search)
+    console.log("handle search change");
+    console.log("search: " + search);
+    const results = merchants.filter(
+      item => search && item.name.toLowerCase().includes(search)
     );
     this.setState({ results, search });
     this.animate();
   };
 
   renderSearch = () => {
+    console.log("render search inside search");
     const { search } = this.state;
     const iconSearch = search ? (
       <TouchableWithoutFeedback onPress={() => this.setState({ search: "" })}>
@@ -90,11 +95,11 @@ export default class Search extends React.Component {
     return (
       <Block style={styles.notfound}>
         <Text style={{ fontFamily: 'open-sans-regular' }} size={18} color={argonTheme.COLORS.TEXT}>
-          We didn’t find "<Text bold>{this.state.search}</Text>" in our store.
+          We didn’t find "<Text bold>{this.state.search}</Text>" nearby.
         </Text>
 
         <Text size={18} style={{ marginTop: theme.SIZES.BASE, fontFamily: 'open-sans-regular' }} color={argonTheme.COLORS.TEXT}>
-          You can see more products from other categories.
+          You can see more merchants from other categories.
         </Text>
       </Block>
     );
@@ -106,7 +111,7 @@ export default class Search extends React.Component {
     return (
       <FlatList
         data={suggestions}
-        keyExtractor={(item, index) => item.id}
+        keyExtractor={(item, index) => uniqueId("prefix-")}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.suggestion}
@@ -135,12 +140,12 @@ export default class Search extends React.Component {
         <Block flex>
           <Block flex row>
             <Card
-              item={articles[1]}
+              item={merchants[1]}
               style={{ marginRight: theme.SIZES.BASE }}
             />
-            <Card item={articles[2]} />
+            <Card item={merchants[2]} />
           </Block>
-          <Card item={articles[0]} horizontal />
+          <Card item={merchants[0]} horizontal />
         </Block>
       </ScrollView>
     );
@@ -156,7 +161,7 @@ export default class Search extends React.Component {
     return (
       <Animated.View
         style={{ width: width - theme.SIZES.BASE * 2, opacity }}
-        key={`result-${result.title}`}
+        key={`result-${uniqueId("prefix-")}`}
       >
         <Card item={result} horizontal />
       </Animated.View>
