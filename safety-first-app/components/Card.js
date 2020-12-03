@@ -58,7 +58,7 @@ class Card extends React.Component {
                   <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '100' }}>
                       Current Wait Time:
                     </Text>
-                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.currentWait} min</Text>
+                     <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{item.waitTime.current} min</Text>
                     
                   </Block>
                 </Block>

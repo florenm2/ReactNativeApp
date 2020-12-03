@@ -4,11 +4,10 @@ import axios from 'axios';
 import styles from './ApiStyles';
 import {
     View,
-    Text,
-    TouchableWithoutFeedback
+    Text
 } from "react-native";
 import { Block, theme } from "galio-framework";
-import argonTheme from "../../constants/Theme";
+import colors from '../../constants/colors';
 
 
 class ApiContainer extends Component {
@@ -45,8 +44,7 @@ class ApiContainer extends Component {
         return (
             <View style={{
                 height: .5,
-                width: "100%",
-                // backgroundColor: "rgba(0,0,0,0.5)",
+                width: "100%"
             }}
             />
         );
@@ -54,13 +52,12 @@ class ApiContainer extends Component {
     renderItem = (data) => {
         const cardContainer = [styles.card, styles.shadow];
         return (
-        
-            // <TouchableWithoutFeedback onPress={()=>{}}>
+    
             <View>
             <Block style={cardContainer}>
                 <Block style={{ padding: theme.SIZES.BASE * 2, paddingBottom: 0}}>
 
-                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{data.item.date}</Text>
+                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={colors.visaTheme.blue}>{data.item.date}</Text>
 
                     <Block card style={{ marginTop: 10 }}>
                         <Block row style={styles.waitTimesFirstBlock}>
@@ -92,8 +89,6 @@ class ApiContainer extends Component {
                 </Block>
             </Block>
             </View>
-
-            // </TouchableWithoutFeedback> 
         )
 
     }

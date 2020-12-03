@@ -36,10 +36,13 @@ const SearchButton = ({isWhite, style, navigation}) => (
 
 class Header extends React.Component {
   handleLeftPress = () => {
+    console.log("handleLeftPress inside Header.js");
     const { back, navigation } = this.props;
+    console.log(this.props);
     return (back ? navigation.goBack() : navigation.openDrawer());
   }
   renderRight = () => {
+    console.log("renderRight inside Header.js");
     const { white, title, navigation } = this.props;
     // const { routeName } = navigation.state;
 
@@ -50,6 +53,7 @@ class Header extends React.Component {
       ]
     }
 
+    console.log("title ", title);
     switch (title) {
       case 'Home':
       case 'Deals':
@@ -67,6 +71,7 @@ class Header extends React.Component {
     }
   }
   renderSearch = () => {
+    console.log("renderSearch inside Header.js");
     const { navigation } = this.props;
     return (
       <Input
@@ -81,6 +86,7 @@ class Header extends React.Component {
     );
   }
   renderOptions = () => {
+    console.log("renderOptions inside Header.js");
     const { navigation, optionLeft, optionRight } = this.props;
 
     return (
@@ -101,6 +107,7 @@ class Header extends React.Component {
     );
   }
   renderTabs = () => {
+    console.log("renderTabs inside Header.js");
     const { tabs, tabIndex, navigation } = this.props;
     const defaultTab = tabs && tabs[0] && tabs[0].id;
     
@@ -114,6 +121,7 @@ class Header extends React.Component {
     )
   }
   renderHeader = () => {
+    console.log("renderHeader inside Header.js");
     const { search, options, tabs } = this.props;
     if (search || tabs || options) {
       return (
@@ -126,6 +134,7 @@ class Header extends React.Component {
     }
   }
   render() {
+    console.log("render inside Header.js");
     const { back, title, white, transparent, bgColor, iconColor, titleColor, navigation, ...props } = this.props;
     // const { routeName } = navigation.state;
     const noShadow = ['Search', 'Categories', 'Deals'].includes(title);

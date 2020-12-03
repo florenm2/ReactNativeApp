@@ -64,7 +64,7 @@ export default class Settings extends React.Component {
 
     const privacy = [
       { title: "User Agreement", id: "Agreement", type: "button" },
-      // { title: "Privacy", id: "Privacy", type: "button" },
+      { title: "Privacy", id: "Privacy", type: "button" },
       { title: "About", id: "About", type: "button" }
     ];
 
@@ -103,14 +103,14 @@ export default class Settings extends React.Component {
           renderItem={this.renderItem}
         />
 
-        {/* <Block center style={styles.title}>
+        <Block center style={styles.title}>
           <Text style={{ fontFamily: 'open-sans-bold', paddingBottom: 5 }} size={theme.SIZES.BASE} color={argonTheme.COLORS.TEXT}>
             Privacy Settings
           </Text>
           <Text style={{ fontFamily: 'open-sans-regular' }} size={12} color={argonTheme.COLORS.CAPTION} color={argonTheme.COLORS.TEXT}>
             Third most important settings
           </Text>
-        </Block> */}
+        </Block>
         <FlatList
           data={privacy}
           keyExtractor={(item, index) => item.id}

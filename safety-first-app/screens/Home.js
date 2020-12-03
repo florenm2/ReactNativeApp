@@ -9,7 +9,7 @@ const { width } = Dimensions.get("screen");
 class Home extends React.Component {
   renderArticles = () => {
     return (
-      <ScrollView
+      <ScrollView style={{flex: 1}}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.articles}
       >

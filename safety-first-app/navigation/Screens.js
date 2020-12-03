@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // screens
 import Home from "../screens/Home";
 import Pro from "../screens/Pro";
-import Articles from "../screens/Articles";
+import CovidInfo from "../screens/CovidInfo";
 import Restaurants from "../screens/Restaurants";
 import Category from "../screens/Category";
 import Stores from "../screens/Stores";
@@ -19,6 +19,7 @@ import Search from "../screens/Search";
 import SettingsScreen from "../screens/Settings";
 import AgreementScreen from "../screens/Agreement";
 import AboutScreen from "../screens/About";
+import PrivacyScreen from "../screens/Privacy";
 import NotificationsScreen from "../screens/Notifications";
 // Notifications
 import PersonalNotifications from "../screens/PersonalNotifications";
@@ -102,6 +103,21 @@ function SettingsStack(props) {
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
       />
+       <Stack.Screen
+        name="Privacy"
+        component={PrivacyScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              back
+              title="Privacy"
+              scene={scene}
+              navigation={navigation}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
       <Stack.Screen
         name="About"
         component={AboutScreen}
@@ -146,12 +162,12 @@ function SettingsStack(props) {
   );
 }
 
-function ArticlesStack(props) {
+function CovidInfoStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="Covid-19 Info"
-        component={Articles}
+        component={CovidInfo}
         options={{
           header: ({ navigation, scene }) => (
             <Header title="Covid-19 Info" navigation={navigation} scene={scene} />
@@ -322,7 +338,7 @@ function AppStack(props) {
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={HomeStack} />
-      <Drawer.Screen name="Covid-19 Info" component={ArticlesStack} />
+      <Drawer.Screen name="Covid-19 Info" component={CovidInfoStack} />
       <Drawer.Screen name="Settings" component={SettingsStack} />
     </Drawer.Navigator>
   );

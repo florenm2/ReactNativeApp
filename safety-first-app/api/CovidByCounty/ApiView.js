@@ -19,9 +19,11 @@ const ApiView = (props) => {
             />
             
             {loading &&
+            <View  style={{flex: 2}}>
                 <View style={styles.loader}>
                     <ActivityIndicator size="large" color="#0c9" />
                     <Text style={{fontSize:16,color:'red'}}>Loading Data...</Text>
+                </View>
                 </View>
             }
         </View>
