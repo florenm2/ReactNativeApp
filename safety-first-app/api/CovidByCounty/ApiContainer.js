@@ -8,6 +8,15 @@ import {
 } from "react-native";
 import { Block, theme } from "galio-framework";
 import colors from '../../constants/colors';
+// import fs from 'fs';
+
+// const fs = require('file-system');
+// const httpsAgent2 = require('https-agent');
+
+// const httpsAgent = new httpsAgent2({
+//     pfx: fs.readFileSync('../assets/cert/myCert.p12'),
+//     passphrase: 'mvwar'
+// });
 
 
 class ApiContainer extends Component {
@@ -27,8 +36,6 @@ class ApiContainer extends Component {
 
         axios.get("https://localcoviddata.com/covid19/v1/cases/covidTracking?state=CA&daysInPast=5")
             .then(response => {
-                console.log('getting data from axios', response.data);
-                console.log('got data');
                 setTimeout(() => {
                     this.setState({
                         loading: false,

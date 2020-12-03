@@ -19,9 +19,135 @@ import { iPhoneX, HeaderHeight } from "../constants/utils";
 const { height, width } = Dimensions.get("window");
 
 export default class Product extends React.Component {
-  state = {
-    selectedSize: null
-  };
+
+
+    constructor(props) {
+    super(props);
+  
+    this.state = {
+      selectedSize: null,
+      safetyRating: '',
+      whenToGo: ''
+    };
+  }
+
+  /*
+    Risk Assessment
+  */
+
+   // We trust and value our long term custumers!
+  analyzeMerchantLoyalty(safetyTally){
+
+        if(this.props.route.params.product.firstTranDateRange >= 365){
+          safetyTally += 2;
+        } 
+
+        return safetyTally;
+  }
+  
+  analyzeOverallTraffic(safetyTally){
+
+       // This location seems to get a lot of traffic, less safe
+       if(this.props.route.params.product.waitTime.current >= 30){
+        safetyTally -= 3;
+      } else if(this.props.route.params.product.waitTime.current >= 20){
+        safetyTally -= 2;
+      } else if(this.props.route.params.product.waitTime.current >= 10){
+        safetyTally -= 1;
+      } 
+  
+      // This place doesn't seem to get very busy, seems more safe
+      if(this.props.route.params.product.waitTime.current <= 10 &&
+        this.props.route.params.product.waitTime.waitOneHour <= 10 &&
+        this.props.route.params.product.waitTime.waitFiveHour <= 10 &&
+        this.props.route.params.product.waitTime.tomorrow <= 10
+        ){
+          safetyTally += 1;
+      } 
+      if(this.props.route.params.product.waitTime.current <= 5 &&
+        this.props.route.params.product.waitTime.waitOneHour <= 5 &&
+        this.props.route.params.product.waitTime.waitFiveHour <= 5 &&
+        this.props.route.params.product.waitTime.tomorrow <= 5
+        ){
+          safetyTally += 1;
+      }
+
+      return safetyTally;
+  }
+
+  analyzePaymentSafetyRating(safetyTally){
+
+    // How safe is your interaction with the cashier?
+    if(this.props.route.params.product.terminalType.includes("PAYWAVE")){
+      safetyTally += 2;
+    }
+    // How modern is the technology? 
+    // Stores with more modern technology may be more likely to be up with the times, and therefore cleaning more
+    if(this.props.route.params.product.terminalType.includes("CHIP")){
+      safetyTally += 1;
+    }
+    
+    return safetyTally;
+  }
+
+  setSafetyRating() {
+    let safetyTally = 5;
+    safetyTally = this.analyzeMerchantLoyalty(safetyTally);
+    safetyTally = this.analyzePaymentSafetyRating(safetyTally);
+    safetyTally = this.analyzeOverallTraffic(safetyTally);
+
+    this.setState({
+      safetyRating: safetyTally <= 7 ? 'High' : safetyTally <= 10 ? 'Medium' : 'Low'
+    })
+  }
+
+  /*
+    Best Time To Go
+  */
+
+  findMinWaitTime(waitTimes){
+
+    let min = waitTimes.current;
+    let recommendation = 'Go Now';
+    
+    if(waitTimes.waitOneHour < min){
+      min = waitTimes.waitOneHour;
+      recommendation = 'Wait One Hour';
+    }
+
+    if(waitTimes.waitFiveHour < min){
+      min = waitTimes.waitFiveHour;
+      recommendation = 'Wait Five Hours';
+    }
+
+    if(waitTimes.tomorrow < min){
+      min = waitTimes.tomorrow;
+      recommendation = 'Go Tomorrow';
+    }
+
+    return recommendation;
+
+  }
+
+  assessBestTimeToGo() {
+    let recommendation = this.findMinWaitTime(this.props.route.params.product.waitTime);
+   
+    this.setState({
+      whenToGo: recommendation
+    })
+
+  }
+
+
+
+
+
+  componentDidMount() {
+    this.setSafetyRating();
+    this.assessBestTimeToGo();
+  }
+
+
 
   scrollX = new Animated.Value(0);
 
@@ -141,25 +267,30 @@ export default class Product extends React.Component {
                 paddingTop: theme.SIZES.BASE * 2
               }}
             >
-              <Text  size={28} style={{ paddingBottom: 24, fontFamily: 'open-sans-regular' }} color={argonTheme.COLORS.TEXT}>
-                {product.name}
-              </Text>
+
+              <Block column style={{ paddingBottom: 24 }}>
+                <Text size={28} style={{ fontFamily: 'open-sans-regular' }} color={argonTheme.COLORS.TEXT}>
+                  {product.name}
+                </Text>
+                <Text style={[(this.state.safetyRating) == 'High' ? styles.riskTextHigh : 
+                (this.state.safetyRating) == 'Medium' ? styles.riskTextMedium :  
+                styles.riskTextLow]}>
+                  Assessed Risk: {this.state.safetyRating}
+                </Text>
+              </Block>
+
+
               <Block row space="between">
                 <Block row>
                   <Block style={{ marginTop: 2 }}>
-                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>Recommendation</Text>
-                    <Text style={{ fontFamily: 'open-sans-light' }} size={14} color={argonTheme.COLORS.TEXT} style={{ fontWeight: '200' }}>
-                      Current Risk: Low
-                    </Text>
+                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT} >Best time to go:</Text>
                   </Block>
                 </Block>
                 <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
-                  Go Now
+                  {this.state.whenToGo}
                 </Text>
               </Block>
             </Block>
-
-
 
 
             <Block style={{ padding: theme.SIZES.BASE * 2, paddingBottom: 0}}>
@@ -313,6 +444,25 @@ const styles = StyleSheet.create({
   waitTimesLastBlock: {
     paddingLeft: theme.SIZES.INPUT_LABEL_TEXT,
     paddingBottom: theme.SIZES.INPUT_TEXT,
+  },
+  riskTextLow: { 
+    fontSize:14,
+    color: argonTheme.COLORS.TEXT,
+    fontWeight: '200',
+    fontFamily: 'open-sans-light' 
+  },
+  riskTextMedium: { 
+    
+    fontSize:14,
+    color: argonTheme.COLORS.WARNING,
+    fontWeight: '300',
+    fontFamily: 'open-sans-light' 
+  },
+  riskTextHigh: { 
+    fontSize:14,
+    color: argonTheme.COLORS.ERROR,
+    fontWeight: '800',
+    fontFamily: 'open-sans-light' 
   }
 
 });
