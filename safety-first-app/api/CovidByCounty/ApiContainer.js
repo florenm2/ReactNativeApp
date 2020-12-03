@@ -5,7 +5,7 @@ import styles from './ApiStyles';
 import {
     View,
     Text,
-    TouchableOpacity
+    TouchableWithoutFeedback
 } from "react-native";
 import { Block, theme } from "galio-framework";
 import argonTheme from "../../constants/Theme";
@@ -20,13 +20,13 @@ class ApiContainer extends Component {
         };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.setState({
             loading: true,
 
         })
 
-        axios.get("https://localcoviddata.com/covid19/v1/cases/covidTracking?state=CA&daysInPast=4")
+        axios.get("https://localcoviddata.com/covid19/v1/cases/covidTracking?state=CA&daysInPast=5")
             .then(response => {
                 console.log('getting data from axios', response.data);
                 console.log('got data');
@@ -52,41 +52,48 @@ class ApiContainer extends Component {
         );
     }
     renderItem = (data) => {
+        const cardContainer = [styles.card, styles.shadow];
         return (
         
-        
-            <Block style={{ padding: theme.SIZES.BASE * 2, paddingBottom: 0}}>
-                <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{data.item.date}</Text>
-            <Block card style={{ marginTop: 10 }}>
-            <Block row>
-                <Block
-                flex
-                >
-                <Block row style={styles.waitTimesFirstBlock}>
-                    <Block><Text style={styles.waitTimesLabelText}>People currently in hospital: </Text></Block>
-                    <Block><Text style={styles.waitTimesText}>{data.item.peopleHospCurrentlyCt}</Text></Block>
-                </Block>
+            // <TouchableWithoutFeedback onPress={()=>{}}>
+            <View>
+            <Block style={cardContainer}>
+                <Block style={{ padding: theme.SIZES.BASE * 2, paddingBottom: 0}}>
 
-                <Block row style={styles.waitTimesBlock}>
-                    <Block><Text style={styles.waitTimesLabelText}>New COVID-19 Deaths: </Text></Block>
-                    <Block><Text style={styles.waitTimesText}>{data.item.peopleDeathNewCt}</Text></Block>
-                </Block>
+                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={argonTheme.COLORS.TEXT}>{data.item.date}</Text>
 
-                <Block row style={styles.waitTimesBlock}>
-                    <Block><Text style={styles.waitTimesLabelText}>Postitive tests: </Text></Block>
-                    <Block><Text style={styles.waitTimesText}>{data.item.peoplePositiveNewCasesCt}</Text></Block>
-                </Block>
+                    <Block card style={{ marginTop: 10 }}>
+                        <Block row style={styles.waitTimesFirstBlock}>
+                            <Block><Text style={styles.waitTimesLabelText}>People currently in hospital: </Text></Block>
+                            <Block><Text style={styles.waitTimesText}>{data.item.peopleHospCurrentlyCt}</Text></Block>
+                        </Block>
 
-                <Block row style={styles.waitTimesLastBlock}>
-                    <Block><Text style={styles.waitTimesLabelText}>Negative tests: </Text></Block>
-                    <Block><Text style={styles.waitTimesText}>{data.item.peopleNegativeNewCt}</Text></Block>
-                </Block>
+                        <Block row style={styles.waitTimesBlock}>
+                            <Block><Text style={styles.waitTimesLabelText}>New COVID-19 Deaths: </Text></Block>
+                            <Block><Text style={styles.waitTimesText}>{data.item.peopleDeathNewCt}</Text></Block>
+                        </Block>
 
+                        <Block row style={styles.waitTimesBlock}>
+                            <Block><Text style={styles.waitTimesLabelText}>Postitive tests: </Text></Block>
+                            <Block><Text style={styles.waitTimesText}>{data.item.peoplePositiveNewCasesCt}</Text></Block>
+                        </Block>
+
+                        <Block row style={styles.waitTimesBlock}>
+                            <Block><Text style={styles.waitTimesLabelText}>Negative tests: </Text></Block>
+                            <Block><Text style={styles.waitTimesText}>{data.item.peopleNegativeNewCt}</Text></Block>
+                        </Block>
+
+                        <Block row style={styles.waitTimesLastBlock}>
+                            <Block><Text style={styles.waitTimesLabelText}>People recovered: </Text></Block>
+                            <Block><Text style={styles.waitTimesText}>{data.item.peopleRecoveredCt}</Text></Block>
+                        </Block>
+
+                    </Block>
                 </Block>
             </Block>
-            
-            </Block>
-            </Block>
+            </View>
+
+            // </TouchableWithoutFeedback> 
         )
 
     }
@@ -95,6 +102,7 @@ class ApiContainer extends Component {
         const { loading, covidCountyData } = this.state
         return (
             <ApiView
+            style={{flex: 1}}
                 goForAxios={this.goForAxios}
                 covidCountyData={covidCountyData}
                 loading={loading}

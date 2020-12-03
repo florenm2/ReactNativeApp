@@ -7,20 +7,16 @@ import uniqueId from 'lodash/uniqueId';
 const ApiView = (props) => {
     const { goForAxios, renderItem, FlatListItemSeparator, loading, covidCountyData } = props
     return (
-        <Block style={styles.container}>
+        <View  style={{flex: 1}}>
             <Block >
-            <Block >
-                <Text style={styles.textStyle}>Covid Data in your county for the last four days.</Text>
+                <Text style={styles.textStyle}>Covid-19 data in the state of California for the last five days.</Text>
             </Block>
-            <Block >
                 <FlatList
                 data={covidCountyData}
                 ItemSeparatorComponent={FlatListItemSeparator}
                 renderItem={item => renderItem(item)}
                 keyExtractor={item => uniqueId("prefix-")}
             />
-            </Block>
-            </Block>
             
             {loading &&
                 <View style={styles.loader}>
@@ -28,7 +24,7 @@ const ApiView = (props) => {
                     <Text style={{fontSize:16,color:'red'}}>Loading Data...</Text>
                 </View>
             }
-        </Block>
+        </View>
     )
 }
 export default ApiView;

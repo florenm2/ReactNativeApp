@@ -9,7 +9,7 @@ const styles = {
         justifyContent: 'center',
     },
     textStyle:{
-        fontSize:18,
+        fontSize:20,
         textAlign:'center',
         paddingTop:32
     },
@@ -17,16 +17,15 @@ const styles = {
         backgroundColor: theme.COLORS.WHITE
     },
     loader: {
-        flex:1,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: theme.COLORS.WHITE
     },
-    list: {
-        paddingVertical: 4,
-        margin: 5,
-        backgroundColor: theme.COLORS.WHITE
-    },
+    // list: {
+    //     paddingVertical: 4,
+    //     margin: 5,
+    //     backgroundColor: theme.COLORS.WHITE
+    // },
     waitTimesLabelText: {
         textAlign: 'left',
         fontFamily: 'open-sans-light',
@@ -48,11 +47,7 @@ const styles = {
         paddingLeft: theme.SIZES.INPUT_LABEL_TEXT,
         paddingBottom: theme.SIZES.INPUT_TEXT,
       },
-      title: {
-          flex: 1
-      },
       list: {
-        flex:2,
         position: "relative",
         marginHorizontal: theme.SIZES.BASE,
         marginTop: -theme.SIZES.BASE * 2,
@@ -60,10 +55,21 @@ const styles = {
         borderTopLeftRadius: 13,
         borderTopRightRadius: 13,
         backgroundColor: theme.COLORS.WHITE,
+
+      },
+      shadow: {
         shadowColor: "black",
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 8,
         shadowOpacity: 0.2
-      }
+      },
+      card: {
+        backgroundColor: theme.COLORS.WHITE,
+        marginVertical: theme.SIZES.BASE,
+        borderWidth: 0,
+        minHeight: 114,
+        marginBottom: 4,
+        paddingBottom: 25
+      },
 };
 export default styles;
