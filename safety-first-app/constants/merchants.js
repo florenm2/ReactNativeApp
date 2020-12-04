@@ -107,7 +107,7 @@ export default [
         distanceUnit: 'm',
         latitude: '37.363355',
         longitude: '-121.921990',
-        category: 'FAST CASUAL RESTAURANT',
+        category: 'store',
         terminalType: [
             'SWIPE',
             'CHIP',
