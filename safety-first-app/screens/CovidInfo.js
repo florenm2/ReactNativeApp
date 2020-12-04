@@ -1,7 +1,8 @@
 import React from "react";
 import {
   View,
-  Dimensions
+  Dimensions,
+  Text
 } from "react-native";
 import ApiContainer from "../api/CovidByCounty/ApiContainer";
 
@@ -10,7 +11,9 @@ class CovidInfo extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-      <ApiContainer/>
+        
+        <ApiContainer/>
+
       </View>
     )
   };

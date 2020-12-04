@@ -10,13 +10,47 @@ const styles = {
         justifyContent: 'center',
     },
     textStyle:{
-        fontSize:20,
+        fontSize:18,
+        fontWeight: '700',
         textAlign:'center',
         paddingTop:32,
-        color: colors.visaTheme.blue
+        color: '#214484',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    linkStyle:{
+      fontSize:14,
+      fontWeight: '700',
+      textAlign:'center',
+      paddingTop:2,
+      color: '#214484',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textDecorationLine: 'underline',
+    },
+    linkTextStyle:{
+      paddingLeft:3,
+      fontSize:14,
+      fontWeight: '700',
+      textAlign:'center',
+      paddingTop:10,
+      color: '#214484',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textDecorationLine: 'underline',
+      marginBottom: 15,
+    },
+    titleContainer: {
+      width: '80%',
+      // justifyContent: 'center',
+      // alignItems: 'center'
     },
     container: {
-        backgroundColor: theme.COLORS.WHITE
+        // backgroundColor: '#97AECC'
+        flex: 1,
+        backgroundColor: '#cbe3ff', 
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     loader: {
         justifyContent: "center",
@@ -29,17 +63,17 @@ const styles = {
     // },
     waitTimesLabelText: {
         textAlign: 'left',
-        fontFamily: 'open-sans-light',
+        fontFamily: 'open-sans-regular',
         paddingLeft: 0,
         color: colors.visaTheme.blue
       },
       waitTimesText: {
         textAlign: 'right',
-        fontFamily: 'open-sans-regular',
+        fontFamily: 'open-sans-bold',
         color: colors.visaTheme.blue
       },
       waitTimesFirstBlock: {
-        paddingLeft: theme.SIZES.INPUT_LABEL_TEXT,
+        paddingHorizontal: theme.SIZES.INPUT_LABEL_TEXT,
         paddingTop: theme.SIZES.INPUT_TEXT,
         color: colors.visaTheme.blue
       },
@@ -71,12 +105,27 @@ const styles = {
       },
       card: {
         backgroundColor: theme.COLORS.WHITE,
-        marginVertical: theme.SIZES.BASE,
+        // backgroundColor: '#DDE4EE',
+        marginVertical: theme.SIZES.BASE * 2,
         borderWidth: 0,
-        minHeight: 114,
+        // minHeight: 114,
         marginBottom: 4,
         paddingBottom: 25,
-        fontFamily: 'open-sans-regular'
+        fontFamily: 'open-sans-regular',
+        borderRadius: 8,
+        overflow: 'hidden',
+        opacity:'0.80'
       },
+      cardContainer: {
+        paddingHorizontal: theme.SIZES.BASE * 2, 
+        paddingBottom: 0,
+        paddingTop: theme.SIZES.BASE
+      },
+      dateStyle:{
+        fontSize:14,
+        fontWeight: '700',
+        paddingTop:5,
+        color: '#214484'
+    },
 };
 export default styles;

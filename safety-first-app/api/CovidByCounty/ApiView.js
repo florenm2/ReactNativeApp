@@ -1,15 +1,29 @@
 import React, { Component } from 'react'
-import { View, Text, Button, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, Button, Linking, FlatList, ActivityIndicator } from 'react-native';
 import styles from './ApiStyles';
-import { Block } from "galio-framework";
+import { Block, theme } from "galio-framework";
 import uniqueId from 'lodash/uniqueId';
+import { Icon } from "../../components";
 
 const ApiView = (props) => {
     const { goForAxios, renderItem, FlatListItemSeparator, loading, covidCountyData } = props
     return (
-        <View  style={{flex: 1}}>
-            <Block >
-                <Text style={styles.textStyle}>Covid-19 data in the state of California for the last five days.</Text>
+        <View  style={styles.container}>
+            <Block style={styles.titleContainer}>
+                <Text style={styles.textStyle}>Covid-19 data for California.</Text>
+                
+                <Block row style={styles.linkStyle}>
+                <Icon
+                    size={16}
+                    color={theme.COLORS.MUTED}
+                    name="magnifying-glass"
+                    family="entypo"
+                    />
+                    <Text style={styles.linkTextStyle}
+                    onPress={() => Linking.openURL('https://usa.visa.com/visa-everywhere/blog/bdp/2020/05/05/covid-19-response-update-1588713283813.html')}>
+                    Visa's Covid-19 Response
+                 </Text>
+                 </Block>
             </Block>
                 <FlatList
                 data={covidCountyData}

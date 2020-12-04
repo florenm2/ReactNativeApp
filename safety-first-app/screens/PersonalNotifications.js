@@ -45,6 +45,23 @@ export default class PersonalNotifications extends React.Component {
               style={{ marginTop: 15 }}
               onPress={() => Alert.alert('The Walgreens located at 4170 El Camino Real, Palo Alto, CA 94306, is unusually busy.')}
             />
+            <Notification
+              time="15:30"
+              body="Panera Bread is less busy than usual right now."
+              iconName="bell"
+              iconFamily="font-awesome"
+              style={{ marginTop: 15 }}
+              onPress={() => Alert.alert('The Panera Bread located at 660 Stanford Shopping Center, Palo Alto, CA 94304, is not busy. Now is a good time to go.')}
+            />
+                        <Notification
+              time="11:30"
+              body="Great News! Panera Bread has had low wait times all day."
+              iconName="bell"
+              iconFamily="font-awesome"
+              color={argonTheme.COLORS.WARNING}
+              style={{ marginTop: 15 }}
+              onPress={() => Alert.alert('The Panera Bread located at 660 Stanford Shopping Center, Palo Alto, CA 94304, is not busy today. Now is a good time to go.')}
+            />
             <Block style={{ marginBottom: 20 }} />
           </ScrollView>
         </Block>

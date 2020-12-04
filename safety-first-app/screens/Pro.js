@@ -28,14 +28,14 @@ export default class Pro extends React.Component {
           <Block space="between" style={styles.padded}>
             <Block>
               <Block>
-                <Block center>
+                {/* <Block center>
                   <Text style={{ fontFamily: 'open-sans-regular', top:70 }} color="white" size={50}>
                     VISA
                   </Text>
-                </Block>
+                </Block> */}
                 <Block center>
                   <Text style={{ fontFamily: 'open-sans-light' , top: 75}} color="white" size={20}>
-                    Wait Less to Shop
+                    Developed by VISA
                   </Text>
                 </Block>
                 <Block row>

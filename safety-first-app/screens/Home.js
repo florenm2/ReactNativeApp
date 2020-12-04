@@ -20,7 +20,6 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    console.log("queueInsightsData ", this.state.queueInsightsData);
     axios.post(
         "https://sandbox.api.visa.com/visaqueueinsights/v1/queueinsights", {
         cert: "MIIEFDCCAvygAwIBAgIIIeol6vRGexIwDQYJKoZIhvcNAQELBQAwMTEOMAwGA1UEAwwFVkRQQ0ExEjAQBgNVBAoMCVZEUFZJU0FDQTELMAkGA1UEBhMCVVMwHhcNMjAxMjAyMTcxNzM5WhcNMjIxMjAyMTcxNzM5WjCB4TEiMCAGCSqGSIb3DQEJARYTYmluaWFtNTU0QGdtYWlsLmNvbTE0MDIGCgmSJomT8ixkAQEMJGE5MDUwM2EyLTVlOGQtNDYyNi04MDhkLWIwMzUzYmZiZWU5YzEtMCsGA1UEAwwkYTkwNTAzYTItNWU4ZC00NjI2LTgwOGQtYjAzNTNiZmJlZTljMRMwEQYDVQQLDApEZXBhcnRtZW50MRUwEwYDVQQKDAxPcmdhbml6YXRpb24xDTALBgNVBAcMBENpdHkxDjAMBgNVBAgMBVN0YXRlMQswCQYDVQQGEwJVUzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJAxS/0OMP3ijB8DQBMQl+3Y40OMEEY+zOdQXYNz3fIMajowxAi+gvp47PWa9G2bf54h/kvvAL1y3IFkV/Iv3C1jVC1Pnmg6RelQaJAFA4GgYvTsl0jpmV99kd3U9IYLPoGJG4+Y2gSKUTgw2LO5KjMmObcJCcFpIU+KtW09xEuR8KeGYpW3COjuXewfd1zkjHZq5eGc76aag3hMBM0/uKpM3DTPMPwWiAvQ1N0cw1iMckzPtFEjJ6qnEmp2twCcThL4UohkNSJyuIEK6+yLzQmHjHWdE/8FQ8s7OJ6nqHT/xiektG33sg9vv1x/l/bTCFV3IH+4gmb4sZf3wRl2uo8CAwEAAaN/MH0wHQYDVR0OBBYEFAHBStezzIc7ENarXUJ66SDcwXf9MAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUr91utqBLnHm5Fghi5iMxEKeC66EwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQsFAAOCAQEAepSs9fADhcQpgnrXdatE44HQ5qQA5CKYiTJkyLQOCOglQDY3eWUuLp7Ep5+Hc8rJpVFxrY++O/24qALyxBuDnVx69UQgeP5cdwNhbc2n0HtzFNZDhtTmhp+cHiEx/mvqbdM/ZJ2n/ULVlpwrxMRu0Y6lmztxkgUZlTqC4dUhqSerGNI+yBFJcCiE9N+/+ZrWAVBk8p1TXGjntYqxMhXAluXp2XMVP7fFQhckC6fGCY67E7Mqj2yGXbYXUYxhAYehDk0CFFJDVPb3cz6259tcI2w1ZeFVElYzkdyOuLoCCrC20/1KewqCW/fUEdnYZ3U1DGBSgi7LEZ4n8pVJFg6Wbw==",
@@ -58,6 +57,7 @@ class Home extends React.Component {
             })
         }, 2000)
     });
+    
 }
 
 
@@ -89,8 +89,6 @@ class Home extends React.Component {
 
 
   renderArticles = () => {
-    // const { merchantData } = props;
-    // console.log(props);
 
     const { search } = this.state.search;
     const iconSearch = search ? (

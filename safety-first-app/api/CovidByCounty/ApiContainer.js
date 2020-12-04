@@ -9,16 +9,6 @@ import {
 import { Block, theme } from "galio-framework";
 import colors from '../../constants/colors';
 
-// import fs from 'fs';
-
-// const fs = require('file-system');
-// const httpsAgent2 = require('https-agent');
-
-// const httpsAgent = new httpsAgent2({
-//     pfx: fs.readFileSync('../assets/cert/myCert.p12'),
-//     passphrase: 'mvwar'
-// });
-
 
 class ApiContainer extends Component {
     constructor(props) {
@@ -63,13 +53,13 @@ class ApiContainer extends Component {
         const cardContainer = [styles.card, styles.shadow];
         return (
     
-            <View>
+            <View >
             <Block style={cardContainer}>
-                <Block style={{ padding: theme.SIZES.BASE * 2, paddingBottom: 0}}>
+                <Block style={styles.cardContainer}>
 
-                    <Text style={{ fontFamily: 'open-sans-regular' }} size={14} color={colors.visaTheme.blue}>{data.item.date}</Text>
+                    <Text style={styles.dateStyle}>{data.item.date}</Text>
 
-                    <Block card style={{ marginTop: 10 }}>
+                    <Block card style={{ marginTop: 10}}>
                         <Block row style={styles.waitTimesFirstBlock}>
                             <Block><Text style={styles.waitTimesLabelText}>People currently in hospital: </Text></Block>
                             <Block><Text style={styles.waitTimesText}>{data.item.peopleHospCurrentlyCt}</Text></Block>

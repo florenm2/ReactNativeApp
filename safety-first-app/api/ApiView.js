@@ -4,7 +4,7 @@ import styles from './ApiStyles';
 import uniqueId from 'lodash/uniqueId';
 
 const ApiView = (props) => {
-    const { merchantData, renderItem, FlatListItemSeparator, dataSource, loading } = props
+    const { merchantData, merchantLocatorData, renderItem, FlatListItemSeparator, dataSource, loading } = props
     return (
         <View style={styles.parentContainer}>
             <View>
