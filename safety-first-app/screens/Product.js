@@ -175,18 +175,15 @@ export default class Product extends React.Component {
         ])}
       >
         {productImages.map((image, index) => (
-          <TouchableWithoutFeedback
+          <Block
             key={`product-image-${index}`}
-            onPress={() =>
-              navigation.navigate("Gallery", { images: productImages, index })
-            }
           >
             <Image
               resizeMode="cover"
               source={image}
               style={{ width, height: iPhoneX ? width + 32 : width }}
             />
-          </TouchableWithoutFeedback>
+          </Block>
         ))}
       </ScrollView>
     );
