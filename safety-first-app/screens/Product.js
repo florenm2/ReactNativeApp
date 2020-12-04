@@ -41,6 +41,9 @@ export default class Product extends React.Component {
         if(this.props.route.params.product.firstTranDateRange >= 365){
           safetyTally += 2;
         } 
+        if(this.props.route.params.product.firstTranDateRange >= 1095){
+          safetyTally += 2;
+        } 
 
         return safetyTally;
   }
@@ -107,20 +110,20 @@ export default class Product extends React.Component {
 
   findMinWaitTime(waitTimes){
 
-    let min = waitTimes.current;
+    let min = Number(waitTimes.current);
     let recommendation = 'Go Now';
     
-    if(waitTimes.waitOneHour < min){
+    if(Number(waitTimes.waitOneHour) < min){
       min = waitTimes.waitOneHour;
       recommendation = 'Wait One Hour';
     }
 
-    if(waitTimes.waitFiveHour < min){
+    if(Number(waitTimes.waitFiveHour) < min){
       min = waitTimes.waitFiveHour;
       recommendation = 'Wait Five Hours';
     }
 
-    if(waitTimes.tomorrow < min){
+    if(Number(waitTimes.tomorrow) < min){
       min = waitTimes.tomorrow;
       recommendation = 'Go Tomorrow';
     }
@@ -137,9 +140,6 @@ export default class Product extends React.Component {
     })
 
   }
-
-
-
 
 
   componentDidMount() {

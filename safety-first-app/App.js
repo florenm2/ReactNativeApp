@@ -49,7 +49,7 @@ export default class App extends React.Component {
       'open-sans-light': require('./assets/font/OpenSans-Light.ttf'),
       'open-sans-bold': require('./assets/font/OpenSans-Bold.ttf'),
     });
-
+    console.disableYellowBox = true;
     this.setState({ fontLoaded: true });
   }
   

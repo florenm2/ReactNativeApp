@@ -170,7 +170,6 @@ function HomeStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               title="Home"
-              search
               options
               tabs={tabs.merchants}
               navigation={navigation}
@@ -197,7 +196,7 @@ function HomeStack(props) {
           headerTransparent: true
         }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Search"
         component={Search}
         options={{
@@ -206,7 +205,7 @@ function HomeStack(props) {
           ),
           cardStyle: { backgroundColor: "#F8F9FE" }
         }}
-      />
+      /> */}
       <Stack.Screen
         name="Notifications"
         component={NotificationsStack}

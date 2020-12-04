@@ -4,7 +4,7 @@ export default [
         waitTime: {
             current: '6',
             waitOneHour: '8',
-            waitFiveHour: '10',
+            waitFiveHour: '13',
             tomorrow: '4'
         },
         streetAddress: '4170 El Camino Real',

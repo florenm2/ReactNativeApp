@@ -37,8 +37,6 @@ export default class Search extends React.Component {
   }
 
   handleSearchChange = search => {
-    console.log("handle search change");
-    console.log("search: " + search);
     const results = merchants.filter(
       item => search && item.name.toLowerCase().includes(search)
     );
@@ -47,7 +45,6 @@ export default class Search extends React.Component {
   };
 
   renderSearch = () => {
-    console.log("render search inside search");
     const { search } = this.state;
     const iconSearch = search ? (
       <TouchableWithoutFeedback onPress={() => this.setState({ search: "" })}>
