@@ -19,7 +19,8 @@ function CustomDrawerContent({ drawerPosition, navigation, focused, state, ...re
       style={styles.container}
       forceInset={{ top: 'always', horizontal: 'never' }}
     >
-      <Block flex={0.06} style={styles.header}>
+      {/* <Block flex={0.06} style={styles.header}>  */}
+      <Block flex={0.06} style={{paddingLeft:4, paddingTop: 50, paddingBottom:50}}>
         <Image styles={styles.logo} source={Images.Logo} />
       </Block>
       <Block flex style={{ paddingLeft: 8, paddingRight: 14 }}>
