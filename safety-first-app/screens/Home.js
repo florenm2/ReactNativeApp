@@ -10,7 +10,6 @@ import uniqueId from 'lodash/uniqueId';
 const { width } = Dimensions.get("screen");
 
 class Home extends React.Component {
-
   
   state = {
     results: [],

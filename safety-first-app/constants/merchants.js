@@ -23,7 +23,7 @@ export default [
             'PAYWAVE'
         ],
         firstTranDateRange: '365',
-        lastTranDateRange: '',
+        lastTranDateRange: '1',
         cta: 'View Store',
         image: require("../assets/imgs/merchant/walgreen-1.jpg"),
         image1: require("../assets/imgs/merchant/walgreen-2.jpg"),
@@ -53,7 +53,7 @@ export default [
             'CHIP'
         ],
         firstTranDateRange: '800',
-        lastTranDateRange: '',
+        lastTranDateRange: '1',
         cta: 'View Store',
         image: require("../assets/imgs/merchant/panera-1.jpg"),
         image1: require("../assets/imgs/merchant/panera-3.jpg"),
@@ -83,7 +83,7 @@ export default [
             'CHIP'
         ],
         firstTranDateRange: '10',
-        lastTranDateRange: '',
+        lastTranDateRange: '10',
         cta: 'View Store',
         image: require("../assets/imgs/merchant/homedepot.jpg"),
         image1: require("../assets/imgs/merchant/homed-1.jpg"),
@@ -114,7 +114,7 @@ export default [
             'PAYWAVE'
         ],
         firstTranDateRange: '365',
-        lastTranDateRange: '',
+        lastTranDateRange: '1',
         cta: 'View Store',
         image: require("../assets/imgs/merchant/ikea.jpg"),
         image1: require("../assets/imgs/merchant/ikea-2.jpg"),
@@ -143,7 +143,7 @@ export default [
             'SWIPE'
         ],
         firstTranDateRange: '365',
-        lastTranDateRange: '',
+        lastTranDateRange: '1',
         cta: 'View Store',
         image: require("../assets/imgs/merchant/burger-1.jpg"),
         image1: require("../assets/imgs/merchant/burger-7.jpg"),

@@ -4,7 +4,6 @@ import {
   Dimensions,
   ScrollView,
   TouchableHighlight,
-  TouchableWithoutFeedback,
   Image,
   Animated,
   Platform
@@ -256,7 +255,6 @@ export default class Product extends React.Component {
           </Block>
         </Block>
         <Block flex style={styles.options}>
-          {/* {this.renderChatButton()} */}
           <ScrollView vertical={true} showsVerticalScrollIndicator={false}>
             <Block
               style={{

@@ -12,24 +12,6 @@ import { argonTheme } from "../constants";
 
 class Card extends React.Component {
  
-//   constructor(props) {
-//       super(props);
-//       this.state = {
-//         safetyRating: ''
-//           // covidCountyData: null
-//       };
-//   }
-
-// componentDidMount() {
-//     this.setState({
-//       safetyRating: 19
-
-//     })
-
-
-//   }
-
-
   render() {
     const {
       navigation,
@@ -42,9 +24,6 @@ class Card extends React.Component {
       ctaRight
     } = this.props;
 
-
-
-
     const imageStyles = [
       full ? styles.fullImage : styles.horizontalImage,
       imageStyle
@@ -55,8 +34,6 @@ class Card extends React.Component {
       horizontal ? styles.horizontalStyles : styles.verticalStyles,
       styles.shadow
     ];
-
-   
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
@@ -86,10 +63,6 @@ class Card extends React.Component {
                     
                   </Block>
                 </Block>
-                {/* <Text style={{ fontFamily: 'open-sans-bold' }} size={18} color={argonTheme.COLORS.TEXT}>
-                  {item.open ? 'Open' : 'Closed'}
-                  {this.state.safetyRating}
-                </Text> */}
               </Block>
             </Block>
 

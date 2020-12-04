@@ -1,10 +1,9 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
 import { TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native';
-import { Button, Block, NavBar, Text, theme } from 'galio-framework';
+import { Block, NavBar, theme } from 'galio-framework';
 
 import Icon from './Icon';
-import Input from './Input';
 import Tabs from './Tabs';
 import argonTheme from '../constants/Theme';
 
@@ -23,16 +22,7 @@ const BellButton = ({isWhite, style, navigation}) => (
   </TouchableOpacity>
 );
 
-const SearchButton = ({isWhite, style, navigation}) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Search')}>
-    <Icon
-      size={16}
-      family="Galio"
-      name="search-zoom-in"
-      color={theme.COLORS[isWhite ? 'WHITE' : 'ICON']}
-    />
-  </TouchableOpacity>
-);
+
 
 class Header extends React.Component {
   handleLeftPress = () => {
@@ -52,10 +42,8 @@ class Header extends React.Component {
     switch (title) {
       case 'Home':
       case 'Deals':
-      // case 'Categories':
       case 'Category':
       case 'Product':
-      case 'Search':
       case 'Settings':
         return ([
           <BellButton key='chat-categories' navigation={navigation} isWhite={white}/>,
@@ -65,20 +53,7 @@ class Header extends React.Component {
         break;
     }
   }
-  renderSearch = () => {
-    const { navigation } = this.props;
-    return (
-      <Input
-        right
-        color="black"
-        style={styles.search}
-        placeholder="What are you looking for?"
-        placeholderTextColor={'#8898AA'}
-        onFocus={() => navigation.navigate('Search')}
-        iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search-zoom-in" family="ArgonExtra" />}
-      />
-    );
-  }
+
   renderOptions = () => {
     const { navigation, optionLeft, optionRight } = this.props;
 
@@ -100,11 +75,10 @@ class Header extends React.Component {
     )
   }
   renderHeader = () => {
-    const { search, options, tabs } = this.props;
-    if (search || tabs || options) {
+    const { options, tabs } = this.props;
+    if ( tabs || options) {
       return (
         <Block center>
-          {search ? this.renderSearch() : null}
           {options ? this.renderOptions() : null}
           {tabs ? this.renderTabs() : null}
         </Block>
@@ -114,7 +88,7 @@ class Header extends React.Component {
   render() {
     const { back, title, white, transparent, bgColor, iconColor, titleColor, navigation, ...props } = this.props;
     // const { routeName } = navigation.state;
-    const noShadow = ['Search', 'Categories', 'Deals'].includes(title);
+    const noShadow = ['Categories', 'Deals'].includes(title);
     const headerStyles = [
       !noShadow ? styles.shadow : null,
       transparent ? { backgroundColor: 'rgba(0,0,0,0)' } : null,
@@ -198,14 +172,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 0.3,
     borderRightColor: theme.COLORS.ICON,
   },
-  search: {
-    height: 48,
-    width: width - 32,
-    marginHorizontal: 16,
-    borderWidth: 1,
-    borderRadius: 3,
-    borderColor: argonTheme.COLORS.BORDER
-  },
+
   options: {
     marginBottom: 24,
     marginTop: 10,

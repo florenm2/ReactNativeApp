@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Block, Button, Text, theme } from "galio-framework";
 
-const { height, width } = Dimensions.get("screen");
+const { width } = Dimensions.get("screen");
 import { Images, argonTheme } from "../constants/";
 import { HeaderHeight } from "../constants/utils";
 
@@ -27,12 +27,6 @@ export default class Pro extends React.Component {
           />
           <Block space="between" style={styles.padded}>
             <Block>
-              {/* <Block>
-                <Image
-                  source={Images.ArgonLogo}
-                  style={{ marginBottom: theme.SIZES.BASE }}
-                />
-              </Block> */}
               <Block>
                 <Block center>
                   <Text style={{ fontFamily: 'open-sans-regular', top:70 }} color="white" size={50}>
@@ -45,24 +39,8 @@ export default class Pro extends React.Component {
                   </Text>
                 </Block>
                 <Block row>
-                  {/* <Text style={{ fontFamily: 'open-sans-regular' }} color="white" size={60}>
-                    System
-                  </Text> */}
-                  {/* <Block middle style={styles.pro}>
-                    <Text style={{ fontFamily: 'open-sans-bold' }} size={16} color="white">
-                      PRO
-                    </Text>
-                  </Block> */}
                 </Block>
               </Block>
-              {/* <Text
-                size={16}
-                color="rgba(255,255,255,0.6)"
-                style={{ marginTop: 35, fontFamily: 'open-sans-regular' }}
-              >
-                Take advantage of all the features and screens made upon Galio
-                Design System, coded on React Native for both.
-              </Text> */}
               <Block
                 row
                 style={{
@@ -70,18 +48,6 @@ export default class Pro extends React.Component {
                   marginBottom: theme.SIZES.BASE * 4
                 }}
               >
-                {/* <Image
-                  source={Images.iOSLogo}
-                  style={{
-                    height: 38,
-                    width: 82,
-                    marginRight: theme.SIZES.BASE * 1.5
-                  }}
-                />
-                <Image
-                  source={Images.androidLogo}
-                  style={{ height: 38, width: 140 }}
-                /> */}
               </Block>
               <Button
                 shadowless

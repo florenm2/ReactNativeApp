@@ -1,5 +1,5 @@
 import React from "react";
-import { Easing, Animated, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -10,7 +10,6 @@ import Home from "../screens/Home";
 import Pro from "../screens/Pro";
 import CovidInfo from "../screens/CovidInfo";
 import Product from "../screens/Product";
-import Search from "../screens/Search";
 // settings
 import SettingsScreen from "../screens/Settings";
 import AboutScreen from "../screens/About";
@@ -18,7 +17,6 @@ import PrivacyScreen from "../screens/Privacy";
 import NotificationsScreen from "../screens/Notifications";
 // Notifications
 import PersonalNotifications from "../screens/PersonalNotifications";
-// import SystemNotifications from "../screens/SystemNotifications";
 
 // drawer
 import CustomDrawerContent from "./Menu";
@@ -65,7 +63,6 @@ function NotificationsStack(props) {
       }}
     >
       <Tab.Screen name="Personal" component={PersonalNotifications} />
-      {/* <Tab.Screen name="System" component={SystemNotifications} /> */}
     </Tab.Navigator>
   );
 }
@@ -196,16 +193,6 @@ function HomeStack(props) {
           headerTransparent: true
         }}
       />
-      {/* <Stack.Screen
-        name="Search"
-        component={Search}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header title="Search" back navigation={navigation} scene={scene} />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" }
-        }}
-      /> */}
       <Stack.Screen
         name="Notifications"
         component={NotificationsStack}
