@@ -34,8 +34,6 @@ Within the download you'll find the following directories and files:
 │   ├── Images.js
 │   ├── Theme.js
 │   ├── articles.js
-│   ├── categories.js
-│   ├── deals.js
 │   ├── index.js
 │   ├── tabs.js
 │   └── utils.js
@@ -46,9 +44,6 @@ Within the download you'll find the following directories and files:
 └── screens
     ├── About.js
     ├── CovidInfo.js
-    ├── Restaurants.js
-    ├── Category.js
-    ├── Stores.js
     ├── Gallery.js
     ├── Home.js
     ├── Product.js

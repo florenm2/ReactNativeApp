@@ -9,11 +9,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/Home";
 import Pro from "../screens/Pro";
 import CovidInfo from "../screens/CovidInfo";
-import Restaurants from "../screens/Restaurants";
-import Category from "../screens/Category";
-import Stores from "../screens/Stores";
 import Product from "../screens/Product";
-import Gallery from "../screens/Gallery";
 import Search from "../screens/Search";
 // settings
 import SettingsScreen from "../screens/Settings";
@@ -176,50 +172,7 @@ function HomeStack(props) {
               title="Home"
               search
               options
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" }
-        }}
-      />
-      <Stack.Screen
-        name="Restaurants"
-        component={Restaurants}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title="Restaurants"
-              back
-              tabs={tabs.restaurants}
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          cardStyle: { backgroundColor: "#F8F9FE" }
-        }}
-      />
-      <Stack.Screen
-        name="Category"
-        component={Category}
-        options={{
-          header: ({ navigation, scene }) => {
-            const { params } = scene.descriptor;
-            const title = (params && params.headerTitle) || "Category";
-            return (<Header title={title} back navigation={navigation} scene={scene} />);
-          },
-          cardStyle: { backgroundColor: "#F8F9FE" }
-        }}
-      />
-      <Stack.Screen
-        name="Stores"
-        component={Stores}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              title="Stores"
-              back
-              tabs={tabs.stores}
+              tabs={tabs.merchants}
               navigation={navigation}
               scene={scene}
             />
@@ -237,23 +190,6 @@ function HomeStack(props) {
               back
               white
               transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true
-        }}
-      />
-      <Stack.Screen
-        name="Gallery"
-        component={Gallery}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              back
-              transparent
-              white
-              title=""
               navigation={navigation}
               scene={scene}
             />
