@@ -16,7 +16,7 @@ export default [
         distanceUnit: 'm',
         latitude: '37.367755',
         longitude: '-121.991990',
-        category: '',
+        category: 'store',
         terminalType: [
             'SWIPE',
             'CHIP',
@@ -77,7 +77,7 @@ export default [
         distanceUnit: 'm',
         latitude: '37.367755',
         longitude: '-121.991990',
-        category: '',
+        category: 'store',
         terminalType: [
             'SWIPE',
             'CHIP'

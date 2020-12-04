@@ -2,8 +2,7 @@ import argonTheme from './Theme';
 import articles from './articles';
 import Images from './Images';
 import tabs from './tabs';
-import categories from './categories';
-import deals from './deals';
+// import categories from './categories';
 import utils from './utils';
 import colors from './colors';
 import merchants from './merchants';
@@ -13,9 +12,8 @@ export {
   argonTheme,
   Images,
   tabs,
-  categories,
+  // categories,
   merchants,
-  deals,
   utils,
   colors
 };

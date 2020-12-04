@@ -1,26 +1,66 @@
 import React from "react";
-import { StyleSheet, Dimensions, ScrollView } from "react-native";
-import { Block, theme, Text } from "galio-framework";
+import { StyleSheet, Dimensions, ScrollView, View } from "react-native";
+import { Block, theme } from "galio-framework";
 
 import { Card } from "../components";
 import merchants from "../constants/merchants";
+import { FlatList } from "react-native-gesture-handler";
+import uniqueId from 'lodash/uniqueId';
 const { width } = Dimensions.get("screen");
 
 class Home extends React.Component {
-  renderArticles = () => {
+
+  
+  state = {
+    results: [],
+    active: false
+  };
+
+  handleFilterChange = search => {
+    console.log("handle filter change");
+    console.log("search: " + search);
+    const results = merchants.filter(
+      item => search && item.category.toLowerCase().includes(search)
+    );
+    this.setState({ results });
+    this.animate();
+  };
+  
+  renderItem = (data) => {
+    const cardContainer = [styles.card, styles.shadow];
     return (
-      <ScrollView style={{flex: 1}}
+
+        <View>
+          <Card item={data.item} horizontal /> 
+        </View>
+    )
+  }
+
+
+  renderArticles = () => {
+
+    const { route } = this.props;
+    const tabId = route.params?.tabId;
+
+    const results = tabId == 'all' ? merchants : merchants.filter(
+      item => item.category.toLowerCase().includes(tabId)
+    );
+
+
+    return (
+      <View>
+        <ScrollView style={{flex: 1}}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.articles}
-      >
-        <Block flex>
-          <Card item={merchants[0]} horizontal /> 
-          <Card item={merchants[1]} horizontal /> 
-          <Card item={merchants[2]} horizontal /> 
-          <Card item={merchants[3]} horizontal />
-          <Card item={merchants[4]} horizontal />
-        </Block>
-      </ScrollView>
+        >
+            <FlatList 
+                data={results}
+                renderItem={item => this.renderItem(item)}
+                keyExtractor={item => uniqueId("prefix-")}
+            />
+
+        </ScrollView>
+      </View>
 
     );
   };

@@ -38,7 +38,7 @@ class Header extends React.Component {
   handleLeftPress = () => {
     console.log("handleLeftPress inside Header.js");
     const { back, navigation } = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     return (back ? navigation.goBack() : navigation.openDrawer());
   }
   renderRight = () => {
@@ -57,7 +57,7 @@ class Header extends React.Component {
     switch (title) {
       case 'Home':
       case 'Deals':
-      case 'Categories':
+      // case 'Categories':
       case 'Category':
       case 'Product':
       case 'Search':
@@ -90,20 +90,7 @@ class Header extends React.Component {
     const { navigation, optionLeft, optionRight } = this.props;
 
     return (
-      <Block row style={styles.options}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Restaurants')}>
-          <Block row middle>
-            <Icon name="diamond" family="ArgonExtra" style={{ paddingRight: 10 }} color={argonTheme.COLORS.ICON} />
-            <Text style={{ fontFamily: 'open-sans-regular' }} size={16}  style={styles.tabTitle}>{optionLeft || 'Restaurants'}</Text>
-          </Block>
-        </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Stores')}>
-          <Block row middle>
-            <Icon size={16} name="shop" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON}/>
-            <Text style={{ fontFamily: 'open-sans-regular' }} size={16} style={styles.tabTitle}>{optionRight || 'Stores'}</Text>
-          </Block>
-        </Button>
-      </Block>
+      <Block></Block>
     );
   }
   renderTabs = () => {
@@ -136,6 +123,8 @@ class Header extends React.Component {
   render() {
     console.log("render inside Header.js");
     const { back, title, white, transparent, bgColor, iconColor, titleColor, navigation, ...props } = this.props;
+    // console.log("navigation ", navigation);
+    // console.log("props ", props);
     // const { routeName } = navigation.state;
     const noShadow = ['Search', 'Categories', 'Deals'].includes(title);
     const headerStyles = [
