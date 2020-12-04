@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Block, theme } from "galio-framework";
 import colors from '../../constants/colors';
+
 // import fs from 'fs';
 
 // const fs = require('file-system');
@@ -46,6 +47,8 @@ class ApiContainer extends Component {
             .catch(error => {
                 console.log(error);
             });
+
+       
     }
     FlatListSeparator = () => {
         return (
